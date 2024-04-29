@@ -1,4 +1,5 @@
 public class Ordenador{
   private String name;
-  pri
+  private String brand;
+  
 }
