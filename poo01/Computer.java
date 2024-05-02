@@ -11,7 +11,6 @@ public class Computer{
     this.ram = ram;
     this.mem = mem;
     this.price = price;
-    System.out.println("Computer completed!");
   }
   public Computer(){};
 // MARCA ORDENADOR
@@ -19,15 +18,15 @@ public class Computer{
     this.brand = brand;
   }
 
-  public void getBrand(){
-   System.out.println(this.brand);
+  public String getBrand(){
+   return this.brand;
   }
 // MODELO ORDENADOR
   public void setModel(String model){
     this.model = model;
   }
-  public void getModel(){
-    System.out.println(this.model);
+  public String getModel(){
+    return this.model;
   }
   // PRECIO ORDENADOR
   public void setPrice(float price){
@@ -37,17 +36,18 @@ public class Computer{
     return this.price;
   }
   // MEMORIA Y RAM DEL ORDENADOR 
-  public void getMem(){
-    System.out.println(this.mem);
+  public int getMem(){
+    return this.mem;
   }
   public void setMem(int mem){
     this.mem = mem;
   }
-  public void getRam(){
-    System.out.println(this.ram);
+  public int getRam(){
+    return this.ram;
   }
   public void setRam(int ram){
     this.ram = ram;
   }
+
 
 }

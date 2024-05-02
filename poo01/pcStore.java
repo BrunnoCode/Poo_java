@@ -7,13 +7,11 @@ public class pcStore{
     Scanner scan = new Scanner(System.in);
     ArrayList<Computer> pcs = new ArrayList<>();
     int len = scan.nextInt();
-    Computer pc;
-    for (int x = 0; x < len; x++){
-      pcs.add((pc));
-    }
+
     scan.nextLine();
     for (int i = 0; i < len; i++){
-      System.out.println("Introduzca los datos del Ordenador:");
+      pcs.add(new Computer());
+      System.out.println("Introduzca los datos del Ordenador:\n----------------------");
       System.out.print("Marca: ");
       pcs.get(i).setBrand(scan.nextLine());
       System.out.print("Modelo: ");
@@ -22,9 +20,13 @@ public class pcStore{
       pcs.get(i).setRam(scan.nextInt());
       System.out.print("Armazenamiento: ");
       pcs.get(i).setMem(scan.nextInt());
+      System.out.print("Precio: ");
+      pcs.get(i).setPrice(scan.nextFloat());
       scan.nextLine();
     }
-    System.out.println("Todos ordenadores añadidos\n" + pcs);
+    for (Computer x : pcs){
+      System.out.format("\nMarca: %s\nModelo: %s\nRam: %d GB\nArmazenamiento: %d GB\nPrecio: %.2f €\n\n--------------------------\n", x.getBrand(), x.getModel(), x.getRam(), x.getMem(), x.getPrice());
+    }
     scan.close();
   }
 } 
