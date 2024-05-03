@@ -11,7 +11,7 @@ public class pcStore{
     scan.nextLine();
     for (int i = 0; i < len; i++){
       pcs.add(new Computer());
-      System.out.println("Introduzca los datos del Ordenador:\n----------------------");
+      System.out.println("\nIntroduzca los datos del Ordenador:");
       System.out.print("Marca: ");
       pcs.get(i).setBrand(scan.nextLine());
       System.out.print("Modelo: ");
@@ -22,10 +22,14 @@ public class pcStore{
       pcs.get(i).setMem(scan.nextInt());
       System.out.print("Precio: ");
       pcs.get(i).setPrice(scan.nextFloat());
+      System.out.print("Está Disponible ? (true / false): ");
+      pcs.get(i).setStock(scan.nextBoolean());
       scan.nextLine();
     }
+    System.out.println();
+    System.out.println("Lista completada\n************************");
     for (Computer x : pcs){
-      System.out.format("\nMarca: %s\nModelo: %s\nRam: %d GB\nArmazenamiento: %d GB\nPrecio: %.2f €\n\n--------------------------\n", x.getBrand(), x.getModel(), x.getRam(), x.getMem(), x.getPrice());
+      System.out.println(x.toString());
     }
     scan.close();
   }

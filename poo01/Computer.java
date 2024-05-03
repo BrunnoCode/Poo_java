@@ -1,16 +1,19 @@
+
 public class Computer{
-  private String model;
   private String brand;
+  private String model;
   private int ram;
   private int mem; 
   private float price;
+  private boolean stock;
 
-  public Computer(String model, String brand, int ram, int mem, float price){
+  public Computer(String model, String brand, int ram, int mem, float price, boolean stock){
     this.brand = brand;
     this.model = model;
     this.ram = ram;
     this.mem = mem;
     this.price = price;
+    this.stock = stock;
   }
   public Computer(){};
 // MARCA ORDENADOR
@@ -48,6 +51,38 @@ public class Computer{
   public void setRam(int ram){
     this.ram = ram;
   }
+  // ESTOQUE
+  public void setStock(boolean stock){
+    this.stock = stock;
+  }
+  public boolean getStock(){
+    return this.stock;
+  }
 
+  @Override
+  public String toString(){
 
+    String available = "";
+    String gigas = "";
+    char n = '\n';
+    if (stock)
+      available = "Disponible";
+    else
+      available = "No Disponible";
+
+    if (mem >= 1000){
+      gigas = "1TB";
+    }
+    else
+      gigas = getMem()+"GB";
+
+    return
+      "Marca: " + getBrand().toUpperCase() + n +
+      "Model: " + getModel().toUpperCase() + n +
+      "Ram: " + getRam() + "Gb" + n + 
+      "Armazenamiento: " + gigas + n +
+      "Precio: " + getPrice() + "€" + n +
+      "Disponibilidad: " + available.toUpperCase() +
+      n+"--------------------------"+n;
+  }
 }
