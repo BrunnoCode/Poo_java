@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class pcStore{
+public class pcStore{ 
   public static void main(String[] args){
     System.out.println("Lista de ordenadores\n cúantos ordenadores quieres fichar?");
     Scanner scan = new Scanner(System.in);
@@ -28,8 +28,11 @@ public class pcStore{
     }
     System.out.println();
     System.out.println("Lista completada\n************************");
+    int i = 2;
     for (Computer x : pcs){
-      System.out.println(x.toString());
+      i *= 24;
+      i++;
+      System.out.println("RG: "+ i + "\n" + x.toString());
     }
     scan.close();
   }

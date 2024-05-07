@@ -5,17 +5,17 @@ public class Computer{
   private int ram;
   private int mem; 
   private float price;
-  private boolean stock;
+  private boolean stock; 
 
-  public Computer(String model, String brand, int ram, int mem, float price, boolean stock){
-    this.brand = brand;
+  public Computer(String model, String marca, int ram, int mem, float price, boolean stock){
+    this.brand = marca;
     this.model = model;
     this.ram = ram;
     this.mem = mem;
     this.price = price;
     this.stock = stock;
   }
-  public Computer(){};
+  public Computer(){};   // POLIMORFISMO
 // MARCA ORDENADOR
   public void setBrand(String brand){
     this.brand = brand;
@@ -58,7 +58,7 @@ public class Computer{
   public boolean getStock(){
     return this.stock;
   }
-
+  
   @Override
   public String toString(){
 
