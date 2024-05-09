@@ -78,7 +78,7 @@ public class Computer{
 
     return
       "Marca: " + getBrand().toUpperCase() + n +
-      "Model: " + getModel().toUpperCase() + n +
+      "Model: " + getModel().toUpperCase() + n + 
       "Ram: " + getRam() + "Gb" + n + 
       "Armazenamiento: " + gigas + n +
       "Precio: " + getPrice() + "€" + n +
