@@ -38,7 +38,6 @@ public class TiendaApp{
       }
       if (option != 4){
         System.out.print("\nQuieres seguir comprando? tecle:\n1-Casual\n2-Deportista\n3-Elegante\nTecle 4-Salir: ");
-        option = scan.nextInt();
       }
     } while(option != 4);
     System.out.format("Gracias por visitar nuestra tienda total a pagar: %.2f€\n", totalCarrito);
