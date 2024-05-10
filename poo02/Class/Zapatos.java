@@ -1,3 +1,5 @@
+package Class;
+
 public class Zapatos{
     protected String marca;
     protected String modelo;
