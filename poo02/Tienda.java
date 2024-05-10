@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Tienda{
@@ -10,7 +9,24 @@ public class Tienda{
    
     ArrayList<Zapatos> stock = new ArrayList<>();
 
-    stock.
+    // Añadiendo categorias al estoque
+    stock.add(new Casual());
+    stock.add(new Elegante());
+    stock.add(new Deportista());
+
+    // Casual
+    stock.get(0).setMarca("New Balance");
+    stock.get(0).setModelo("240v 72");
+    stock.get(0).setMaterial("Caucho");
+    stock.get(0).setTalla(42);
+    stock.get(0).setPrecio(64.92);
+
+    // Deportista
+    stock.get(1).setMarca("New Balance");
+    stock.get(1).setModelo("240v 72");
+    stock.get(1).setMaterial("Caucho");
+    stock.get(1).setTalla(42);
+    stock.get(1).setPrecio(64.92);
     
     
     

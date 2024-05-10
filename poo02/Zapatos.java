@@ -3,11 +3,11 @@ public class Zapatos{
     protected String modelo;
     protected String material;
     protected int talla;
-    protected float precio;
+    protected double precio;
   
     public  Zapatos(){}
   
-    public Zapatos(String marca, String modelo, String material, int talla, float precio){
+    public Zapatos(String marca, String modelo, String material, int talla, double precio){
       this.marca = marca;
       this.modelo = modelo;
       this.material = material;
@@ -43,10 +43,10 @@ public class Zapatos{
       this.talla = talla;
     }
   
-    public float getPrecio(){
+    public double getPrecio(){
       return this.precio;
     }
-    public void setPrecio(float precio){
+    public void setPrecio(double precio){
       this.precio = precio;
     }
   
