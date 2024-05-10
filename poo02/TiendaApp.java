@@ -13,11 +13,10 @@ public class TiendaApp{
     Methods.fillStock(stock);
     int option = scan.nextInt();
     do {
-
       switch (option) {
         case 1:
           System.out.println("Casual Stock, Cúal de estos 2 modelos te gustaria? 1-primero/2-segundo");
-          Methods.showShoes(stock, 0, 2);
+          Methods.showShoes(stock, 0, 1);
           totalCarrito += Methods.select(scan.nextInt(), stock, 0, 1);
           System.out.println("Producto comprado!\nPrecio añadido al carrito total: " + totalCarrito+"€");
           break;
@@ -33,23 +32,15 @@ public class TiendaApp{
           totalCarrito += Methods.select(scan.nextInt(), stock, 4, 5);
           System.out.println("Producto comprado!\nPrecio añadido al carrito total: " + totalCarrito+"€");
           break;
-        case 4:
-          option = 4;
-          break;
         default:
           System.out.println("Opcion no válida! intente otra opción.");
           break;
       }
       if (option != 4){
         System.out.print("\nQuieres seguir comprando? tecle:\n1-Casual\n2-Deportista\n3-Elegante\nTecle 4-Salir: ");
+        option = scan.nextInt();
       }
     } while(option != 4);
-
-
-   
-    
-    
-
     scan.close();
   }
 }

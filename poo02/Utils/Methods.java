@@ -1,7 +1,6 @@
 package Utils;
 import Class.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Methods{
   public static void fillStock(ArrayList<Zapatos> stock){
@@ -54,9 +53,8 @@ public class Methods{
   }
 
   public static void showShoes(ArrayList<Zapatos> stock, int start, int end){
-    for (int i = start; i < end; i++){
-      stock.get(i).toString();
-    }
+    stock.get(start).toString();
+    stock.get(end).toString();
   }
 
   public static double select(int option, ArrayList<Zapatos> stock, int first, int second){
