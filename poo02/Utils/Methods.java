@@ -52,14 +52,23 @@ public class Methods{
      stock.get(5).setTalla(39);
      stock.get(5).setPrecio(120.00);
   }
-  public static double select(int option){
+
+  public static void showShoes(ArrayList<Zapatos> stock, int start, int end){
+    for (int i = start; i < end; i++){
+      stock.get(i).toString();
+    }
+  }
+
+  public static double select(int option, ArrayList<Zapatos> stock, int first, int second){
     double total = 0;
     switch (option) {
-      case :
-        
+      case 1:
+        total = stock.get(first).getPrecio();
         break;
-    
+      case 2:
+        total = stock.get(second).getPrecio();
       default:
+        System.out.println("Error: select Method!");
         break;
     }
     return total;
