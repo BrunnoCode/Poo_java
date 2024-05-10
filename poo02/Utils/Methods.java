@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Methods{
   public static void fillStock(ArrayList<Zapatos> stock){
      // Añadiendo categorias al estoque
-     stock.add(new Casual());
-     stock.add(new Casual());
-     stock.add(new Elegante());
-     stock.add(new Elegante());
-     stock.add(new Deportista());
-     stock.add(new Deportista());
+     stock.add(0, new Casual());
+     stock.add(1, new Casual());
+     stock.add(2, new Elegante());
+     stock.add(3, new Elegante());
+     stock.add(4, new Deportista());
+     stock.add(5, new Deportista());
  
      // Casual
      stock.get(0).setMarca("New Balance");
@@ -52,9 +52,9 @@ public class Methods{
      stock.get(5).setPrecio(120.00);
   }
 
-  public static void showShoes(ArrayList<Zapatos> stock, int start, int end){
-    stock.get(start).toString();
-    stock.get(end).toString();
+  public static String showShoes(ArrayList<Zapatos> stock, int start, int end){
+    return 
+      "1º\n"+stock.get(start).toString()+"2º\n"+stock.get(end).toString();
   }
 
   public static double select(int option, ArrayList<Zapatos> stock, int first, int second){
