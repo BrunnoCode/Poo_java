@@ -17,8 +17,11 @@ public class TiendaApp{
 
       switch (option) {
         case 1:
-          System.out.println("Casual Stock, Cúal de estos modelos te gustaria?");
-          for (Zapatos x : )
+          System.out.println("Casual Stock, Cúal de estos 2 modelos te gustaria? 1-primero/2-segundo");
+          for (int i = 0; i < 1; i++){
+            stock.get(i).toString();
+          }
+          totalCarrito += Methods.select(scan.nextInt());
           
           break;
       

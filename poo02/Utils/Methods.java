@@ -1,6 +1,7 @@
 package Utils;
 import Class.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Methods{
   public static void fillStock(ArrayList<Zapatos> stock){
@@ -50,5 +51,17 @@ public class Methods{
      stock.get(5).setMaterial("45.50% Piel de vacuno, 29.60% Textil, 24.90% Sintético");
      stock.get(5).setTalla(39);
      stock.get(5).setPrecio(120.00);
+  }
+  public static double select(int option){
+    double total = 0;
+    switch (option) {
+      case :
+        
+        break;
+    
+      default:
+        break;
+    }
+    return total;
   }
 }
