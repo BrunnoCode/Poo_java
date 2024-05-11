@@ -52,21 +52,48 @@ public class Methods{
      stock.get(5).setPrecio(120.00);
   }
 
-  public static String showShoes(ArrayList<Zapatos> stock, int start, int end){
-    return 
-      "1º\n"+stock.get(start).toString()+"2º\n"+stock.get(end).toString();
-  }
-
-  public static double select(int option, ArrayList<Zapatos> stock, int first, int second){
-    double total = 0;
-    switch (option) {
+  public static String showShoes(int shoesCategory, ArrayList<Zapatos> stock){
+    String res = "";
+    switch (shoesCategory) {
       case 1:
-        total = stock.get(first).getPrecio();
+        res = stock.get(0).toString()+"\n"+stock.get(1).toString()+"\n";
         break;
       case 2:
-        total = stock.get(second).getPrecio();
+        res = stock.get(2).toString()+"\n"+stock.get(3).toString()+"\n";
+        break;
+      case 3:
+        res = stock.get(4).toString()+"\n"+stock.get(5).toString()+"\n";
+        break;
       default:
-        System.out.println("Error: select Method!");
+        System.out.println("Seleción no válida! 1, 2 o 3");
+        break;
+    }
+    return res;
+  }
+
+  public static double select(int option, ArrayList<Zapatos> stock, int category){
+    double total = 0;
+    switch (category) {
+      case 1:
+        if (option == 1)
+          total = stock.get(0).getPrecio();
+        else if(option == 2)
+          total = stock.get(1).getPrecio();
+        break;
+      case 2:
+        if (option == 1)
+          total = stock.get(2).getPrecio();
+        else if(option == 2)
+          total = stock.get(3).getPrecio();
+        break;
+      case 3:
+        if (option == 1)
+          total = stock.get(4).getPrecio();
+        else if(option == 2)
+          total = stock.get(5).getPrecio();
+        break;
+      default:
+        System.out.println("Error select Method!");
         break;
     }
     return total;
