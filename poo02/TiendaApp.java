@@ -27,7 +27,7 @@ public class TiendaApp{
           totalCarrito += Methods.select(scan.nextInt(), stock, category);
           if (totalCarrito == -1)
             return ;
-          System.out.format("Producto comprado!\nPrecio añadido al carrito total: %.2f %s", totalCarrito, line);
+          System.out.format("Producto comprado!\nPrecio añadido al carrito total: %.2f€ %s", totalCarrito, line);
           break;
         case 2:
           category = 2;
@@ -36,7 +36,7 @@ public class TiendaApp{
           totalCarrito += Methods.select(scan.nextInt(), stock, category);
           if (totalCarrito == -1)
             return ;
-          System.out.format("Producto comprado!\nPrecio añadido al carrito total: %.2f %s", totalCarrito, line);
+          System.out.format("Producto comprado!\nPrecio añadido al carrito total: %.2f€ %s", totalCarrito, line);
           break;
         case 3:
           category = 3;
@@ -45,7 +45,7 @@ public class TiendaApp{
           totalCarrito += Methods.select(scan.nextInt(), stock, category);
           if (totalCarrito == -1)
             return ;
-          System.out.format("Producto comprado!\nPrecio añadido al carrito total: %.2f %s", totalCarrito, line);
+          System.out.format("Producto comprado!\nPrecio añadido al carrito total: %.2f€ %s", totalCarrito, line);
           break;
         case 4:
           System.out.println("\n\nGracias por visitar nuestra Tienda!");
