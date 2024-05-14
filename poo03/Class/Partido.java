@@ -26,9 +26,4 @@ public class Partido{
   public int getPartidoPorcent(){
     return this.porcentage;
   }
-
-  public String toString(){
-    return
-      "Partido: "+getNamePartido()+" "+getPartidoPorcent()+"%";
-  }
 }
