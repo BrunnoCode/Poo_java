@@ -55,20 +55,10 @@ public class Methods{
   public static void change(Scanner scan, ArrayList<Partido> politica){
     System.out.print("Qué te gustaria modificar, porcentaje/partido? ");
     String user = scan.nextLine();
-    switch (user) {
-      case "partido":
-        System.out.println("Cúal de estos partidos:");
-        for (Partido y : politica){
-          y.getNamePartido();
-        }
-        user = scan.nextLine();
-        int index = politica.indexOf(user);
-        System.out.println("Elija un nuevo Partido:");
-        politica.get(index).setNamePartido(scan.nextLine());
-        break;
-    
-      default:
-        break;
+    if (user.equalsIgnoreCase("partido")){
+      //codigo aqui
+    } else if (user.equalsIgnoreCase("porcentaje")){
+      //codigo aqui
     }
     
   }

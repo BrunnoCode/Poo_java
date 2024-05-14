@@ -36,24 +36,24 @@ public class Principal{
     do {
       switch (user) {
         case "lista":
-          Methods.cleanScreen();
-          Methods.list(politca);
-          break;
+        Methods.cleanScreen();
+        Methods.list(politca);
+        break;
         case "crear":
-          Methods.create(politca, scan, i);
-          i++;
-          Methods.cleanScreen();
-          break;
+        Methods.create(politca, scan, i);
+        i++;
+        Methods.cleanScreen();
+        break;
         case "cambiar":
-          Methods.change(scan, politca);
-          Methods.cleanScreen();
-          break;
+        Methods.change(scan, politca);
+        Methods.cleanScreen();
+        break;
         default:
-          System.out.println("Error: debes escribir uno de los comandos mencionados!");
-          break;
+        System.out.println("Error: debes escribir uno de los comandos mencionados!");
+        break;
       }
+      
       user = scan.nextLine();
-
     } while (!user.equalsIgnoreCase("salir") || !user.equalsIgnoreCase("cancelar"));
   }
 }
