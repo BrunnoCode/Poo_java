@@ -41,7 +41,8 @@ public class Principal{
             do {
                 Methods.create(partido, scan, ++index);
                 min--;
-                System.out.println("debes crear "+min+" más!");
+                if (min > 0)
+                  System.out.println("debes crear "+min+" más!");
               } while (min > 0);
             break;
           case 2:

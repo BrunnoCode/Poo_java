@@ -91,8 +91,7 @@ public class Methods{
     usr--;
     if (usr >= 0 && usr < partido.size()){
       System.out.println("Partido "+partido.get(usr).getNamePartido()+" Eliminado!");
-      System.out.println("Presione Enter");
-      scan.nextLine();
+      scan.nextInt();
       partido.remove(usr);
     } else {
       System.out.println("Error: El partido no existe!");
