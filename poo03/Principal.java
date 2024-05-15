@@ -38,9 +38,11 @@ public class Principal{
       do {
         switch (usr) {
           case 1:
-            Methods.create(partido, scan, ++index);
-            min--;
-            System.out.println("debes crear "+min+" más!");
+            do {
+                Methods.create(partido, scan, ++index);
+                min--;
+                System.out.println("debes crear "+min+" más!");
+              } while (min > 0);
             break;
           case 2:
             Methods.change(partido, scan);
@@ -51,7 +53,7 @@ public class Principal{
         }
       System.out.println("Crear otro partido presione -> 1, modificar/eliminar -> 2, listar resultado -> 3, salir -> 4");
       usr = scan.nextInt();
-    } while (usr != 4 && min < 5);
+    } while (usr != 4);
   }
     
     scan.close();
