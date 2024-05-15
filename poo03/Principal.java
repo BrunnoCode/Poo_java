@@ -6,54 +6,53 @@ import Utils.Methods;
 
 public class Principal{
   public static void main(String[] args){
-    System.out.println("Primero apresentaremos nuestros metodos:");
-    System.out.println("Metodo printAlpha");
+    System.out.println("\nPrimero apresentaremos nuestros metodos:");
+    System.out.println("\nMetodo printAlpha()");
     Methods.printAlpha();
-    Methods.jumpNline();
-    System.out.println("Ahora un metodo que transforma un int pasado como argumento a una letra!");
+    System.out.println("\nAhora un metodo que transforma un int pasado como argumento a una letra!");
     Scanner scan = new Scanner(System.in);
     System.out.print("Insira un numero de 33 hasta 126: ");
-    while (!scan.hasNextInt()){
-      System.out.println("Error! hay que ser un numero dentro del rango mencionado arriba!");
-      scan.nextLine();
-    }
-    int usr = scan.nextInt();
-    if (usr < 127 && usr > 32)
-      Methods.printAscii(usr);
-    else
-      System.out.println("Numero fuera del rango mencionado, fim de programa!");
-    scan.close();
-    System.out.println("");
-    System.out.println("         Elecciones de España         ");
-    Methods.jumpNline();
-    System.out.println("Enter para continuar.");
-    scan.next();
-    System.out.println("Debes crear al menos 5 partidos y poner sus porcentajes de votos.");
-    System.out.println("Lista de comandos:\nMostrar Lista de comandos: lista\nCrear partido: crear\nCambiar nombre o porcentaje de partido: cambiar\nSalir: salir o cancelar");
-    ArrayList<Partido> politca = new ArrayList<>();
-    String user = scan.nextLine();
-    int i = 0;
     do {
-      switch (user) {
-        case "lista":
-        Methods.cleanScreen();
-        Methods.list(politca);
-        break;
-        case "crear":
-        Methods.create(politca, scan, i);
-        i++;
-        Methods.cleanScreen();
-        break;
-        case "cambiar":
-        Methods.change(scan, politca);
-        Methods.cleanScreen();
-        break;
-        default:
-        System.out.println("Error: debes escribir uno de los comandos mencionados!");
-        break;
-      }
-      
-      user = scan.nextLine();
-    } while (!user.equalsIgnoreCase("salir") || !user.equalsIgnoreCase("cancelar"));
+        int usr = scan.nextInt();
+        if (usr < 127 && usr > 32){
+          System.out.print("Resultado: ");
+          Methods.printAscii(usr);
+        }
+        else
+          System.out.println("Numero fuera del rango mencionado.");
+        System.out.println("Otro numero o escriba salir.");
+      } while (scan.hasNextInt() || scan.nextLine().equalsIgnoreCase("salir"));
+      scan.next();
+    
+
+    // Elecciones de España ejercicio
+    Methods.clearScreen();
+    System.out.println("*---------------* ELECCIONES 2024 *---------------*");
+    ArrayList<Partido> partido = new ArrayList<>();
+    System.out.println("\nDebes crear al menos 5 partidos politicos y poner sus porcentajes de votos:\n");
+    System.out.println("Todavía no existe ningun partido configurado, elija que quieres hacer:");
+    System.out.println("\n1* crear partido\n2* modificar partido o eliminar\n3* listar resultado\n4* salir");
+    int index = -1;
+    int usr = 0;
+
+    usr = scan.nextInt();
+    do {
+        switch (usr) {
+          case 1:
+            Methods.create(partido, scan, ++index);
+            break;
+          case 2:
+            Methods.change(partido, scan);
+            break;
+          default:
+            System.out.println("Opción no válida!");
+            break;
+        }
+      System.out.println("Crear otro partido presione -> 1, modificar/eliminar -> 2, listar resultado -> 3, salir -> 4");
+      usr = scan.nextInt();
+    } while (usr != 4);
+    
+    scan.close();
   }
+  
 }

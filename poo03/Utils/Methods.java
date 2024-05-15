@@ -19,7 +19,7 @@ public class Methods{
     }
     System.out.println();
   }
-
+  
   // Printar char segun numero dado por el usuario
   public static void printAscii(int c){
     System.out.format("%c\n", c);
@@ -27,13 +27,14 @@ public class Methods{
 
   // Salto de linea \n *4
   public static void jumpNline(){
-    System.out.println("\n\n----------------------------------\n");
+    System.out.println("\n*----------------------------------*\n");
   }
   // Lista los partidos
-  public static void list(ArrayList<Partido> politica){
-    for (Partido x : politica){
-      x.getNamePartido();
-      graficPorcent(x.getPartidoPorcent());
+  public static void list(ArrayList<Partido> partido){
+    for (int i = 0; i <= partido.size()-1; i++){
+      System.out.format("%d-> %s %d%% ", i+1, partido.get(i).getNamePartido(), partido.get(i).getPartidoPorcent());
+      graficPorcent(partido.get(i).getPartidoPorcent());
+      System.out.println();
     }
   }
   // Grafico de porcentaje
@@ -43,28 +44,62 @@ public class Methods{
     }
   }
   // Creador de partidos
-  public static void create(ArrayList<Partido> politica, Scanner scan, int i){
-    politica.add(new Partido());
+  public static void create(ArrayList<Partido> partido, Scanner scan, int i){
+    partido.add(i, new Partido());
     System.out.print("Partido: ");
-    politica.get(i).setNamePartido(scan.nextLine());
+    scan.nextLine();
+    partido.get(i).setNamePartido(scan.nextLine());
     System.out.print("Porcentaje de votos: ");
-    politica.get(i).setPartidoPorcent(scan.nextInt());
-    System.out.println("Partido creado!");
-  }
-  // Cambiar datos del partido
-  public static void change(Scanner scan, ArrayList<Partido> politica){
-    System.out.print("Qué te gustaria modificar, porcentaje/partido? ");
-    String user = scan.nextLine();
-    if (user.equalsIgnoreCase("partido")){
-      //codigo aqui
-    } else if (user.equalsIgnoreCase("porcentaje")){
-      //codigo aqui
-    }
+    int usr = scan.nextInt(); 
+    boolean err = false;
+    do {
+      if (usr > 100 || usr < 1){
+       System.out.println("El porcentaje debe ser maior que 0 y menor que 100");
+       usr = scan.nextInt();
+      } else {
+        err = true;
+      }
+    } while(!err);
+    partido.get(i).setPartidoPorcent(usr);
     
+    System.out.println("Partido creado!\n");
   }
-  // Limpiador de pantalla
-  public static void cleanScreen(){
-    System.out.println("\n\n\n\n\n\n\n\n");
+
+  public static void change(ArrayList<Partido> partido, Scanner scan){
+    clearScreen();
+    System.out.println("Selecione qué quieres hacer:\n");
+    System.out.println("Eliminar partido -> 1\nModificar Partido -> 2");
+    int usr = scan.nextInt();
+
+    switch (usr) {
+      case 1:
+        delete(partido, scan);
+        break;
+      case 2:
+        //edit(partido, scan);
+        break;
+      default:
+        System.out.println("Error: Opción no valida, Edición fallida!");
+        break;
+    }
   }
+
+  public static void delete(ArrayList<Partido> partido, Scanner scan){
+    System.out.println("Qué partido quieres eliminar ?");
+    list(partido);
+    int usr = scan.nextInt();
+    if (usr >= 0 && usr <= partido.size()){
+      partido.remove(usr-1);
+      System.out.println("Partido "+partido.get(usr).getNamePartido()+" Eliminado!");
+    } else {
+      System.out.println("Error: El partido no existe!");
+    }
+  }
+
+  public static void clearScreen() {
+    // Codigo ANSI para limpiar terminal
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+}
    
 }
