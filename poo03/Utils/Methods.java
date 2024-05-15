@@ -31,7 +31,7 @@ public class Methods{
   }
   // Lista los partidos
   public static void list(ArrayList<Partido> partido){
-    for (int i = 0; i <= partido.size()-1; i++){
+    for (int i = 0; i < partido.size(); i++){
       System.out.format("%d-> %s %d%% ", i+1, partido.get(i).getNamePartido(), partido.get(i).getPartidoPorcent());
       graficPorcent(partido.get(i).getPartidoPorcent());
       System.out.println();
@@ -88,9 +88,12 @@ public class Methods{
     System.out.println("Qué partido quieres eliminar ?");
     list(partido);
     int usr = scan.nextInt();
-    if (usr >= 0 && usr <= partido.size()){
-      partido.remove(usr-1);
+    usr--;
+    if (usr >= 0 && usr < partido.size()){
       System.out.println("Partido "+partido.get(usr).getNamePartido()+" Eliminado!");
+      System.out.println("Presione Enter");
+      scan.nextLine();
+      partido.remove(usr);
     } else {
       System.out.println("Error: El partido no existe!");
     }

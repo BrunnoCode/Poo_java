@@ -20,11 +20,8 @@ public class Principal{
         }
         else
           System.out.println("Numero fuera del rango mencionado.");
-        System.out.println("Otro numero o escriba salir.");
-      } while (scan.hasNextInt() || scan.nextLine().equalsIgnoreCase("salir"));
-      scan.next();
-    
-
+        System.out.println("Otro numero o pulse 0 para salir.");
+      } while (scan.hasNextInt() && !(scan.nextInt() == 0));
     // Elecciones de España ejercicio
     Methods.clearScreen();
     System.out.println("*---------------* ELECCIONES 2024 *---------------*");
@@ -36,10 +33,14 @@ public class Principal{
     int usr = 0;
 
     usr = scan.nextInt();
-    do {
+    if(usr != 4){
+      int min = 5;
+      do {
         switch (usr) {
           case 1:
             Methods.create(partido, scan, ++index);
+            min--;
+            System.out.println("debes crear "+min+" más!");
             break;
           case 2:
             Methods.change(partido, scan);
@@ -50,7 +51,8 @@ public class Principal{
         }
       System.out.println("Crear otro partido presione -> 1, modificar/eliminar -> 2, listar resultado -> 3, salir -> 4");
       usr = scan.nextInt();
-    } while (usr != 4);
+    } while (usr != 4 && min < 5);
+  }
     
     scan.close();
   }
