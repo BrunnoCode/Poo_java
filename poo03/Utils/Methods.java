@@ -23,6 +23,7 @@ public class Methods{
   // Printar char segun numero dado por el usuario
   public static void printAscii(int c){
     System.out.format("%c\n", c);
+    jumpNline();
   }
 
   // Salto de linea \n *4
@@ -91,7 +92,6 @@ public class Methods{
     usr--;
     if (usr >= 0 && usr < partido.size()){
       System.out.println("Partido "+partido.get(usr).getNamePartido()+" Eliminado!");
-      scan.nextInt();
       partido.remove(usr);
     } else {
       System.out.println("Error: El partido no existe!");
@@ -103,17 +103,31 @@ public class Methods{
     System.out.println("Qué Partido quieres Modificar?");
     list(partido);
     int index = scan.nextInt();
+    index--;
     clearScreen();
-    System.out.println("Modificar Nombre del Partido tecle 1\nModificar porcentaje tecle 2");
-    switch (scan.nextInt()) {
+    scan.nextLine();
+    System.out.println("Modificar Nombre del Partido "+partido.get(index).getNamePartido()+" tecle 1\nModificar porcentaje tecle 2");
+    int usr = scan.nextInt();
+    switch (usr) {
       case 1:
-        String before = partido.get(index).getNamePartido();
         System.out.print("Elija un nuevo nombre: ");
-        partido.get(index).setNamePartido(scan.nextLine());
-        System.out.format("Partido %s cambiado a %s\n", before, partido.get(index).getNamePartido());
+        scan.nextLine();
+        String before = partido.get(index).getNamePartido();
+        String newName = scan.nextLine();
+        partido.get(index).setNamePartido(newName);
+        System.out.format("Partido %s cambiado a %s\n", before, newName);
+        jumpNline();
         break;
-    
+      case 2:
+        System.out.println("Cambiar porcentaje:");
+        System.out.println("Porcentaje anterior "+partido.get(index).getPartidoPorcent()+"%");
+        System.out.print("Indique un nuevo valor: ");
+        int newValue = Integer.parseInt(scan.nextLine());
+        partido.get(index).setPartidoPorcent(newValue);
+        System.out.println("Nuevo porcentaje del partido "+partido.get(index).getNamePartido()+" és: "+newValue+"%");
+        break;
       default:
+        System.out.println("Numero fuera de las opciones!");
         break;
     }
   }

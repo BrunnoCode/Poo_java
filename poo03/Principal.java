@@ -12,26 +12,30 @@ public class Principal{
     System.out.println("\nAhora un metodo que transforma un int pasado como argumento a una letra!");
     Scanner scan = new Scanner(System.in);
     System.out.print("Insira un numero de 33 hasta 126: ");
+    int usr = -1;
     do {
-        int usr = scan.nextInt();
-        if (usr < 127 && usr > 32){
-          System.out.print("Resultado: ");
-          Methods.printAscii(usr);
+        if (scan.hasNextInt()){
+          usr = scan.nextInt();
+          scan.nextLine();
+          if (usr < 127 && usr > 32){
+            System.out.print("Resultado: ");
+            Methods.printAscii(usr);
+          } else if(usr != 0) {
+              System.out.println("Numero fuera del rango mencionado.");
+          }
         }
-        else
-          System.out.println("Numero fuera del rango mencionado.");
-        System.out.println("Otro numero o pulse 0 para salir.");
-      } while (scan.hasNextInt() && !(scan.nextInt() == 0));
+        if (usr != 0){
+          System.out.println("Otro numero o pulse 0 para salir.");
+        }
+      } while (usr != 0);
     // Elecciones de España ejercicio
     Methods.clearScreen();
     System.out.println("*---------------* ELECCIONES 2024 *---------------*");
     ArrayList<Partido> partido = new ArrayList<>();
     System.out.println("\nDebes crear al menos 5 partidos politicos y poner sus porcentajes de votos:\n");
-    System.out.println("Todavía no existe ningun partido configurado, elija que quieres hacer:");
+    System.out.println("Todavía no existe ningun partido configurado, empieze teclando 1 para crear los partidos:");
     System.out.println("\n1* crear partido\n2* modificar partido o eliminar\n3* listar resultado\n4* salir");
     int index = -1;
-    int usr = 0;
-
     usr = scan.nextInt();
     if(usr != 4){
       int min = 5;
@@ -48,11 +52,17 @@ public class Principal{
           case 2:
             Methods.change(partido, scan);
             break;
+          case 3:
+            if(partido.size() > 0)
+                Methods.list(partido);
+            else
+              System.out.println("Todavía no has creado ningún partido!");
+            break;
           default:
             System.out.println("Opción no válida!");
             break;
         }
-      System.out.println("Crear otro partido presione -> 1, modificar/eliminar -> 2, listar resultado -> 3, salir -> 4");
+      System.out.println("Crear más partidos presione -> 1, modificar/eliminar -> 2, listar resultado -> 3, salir -> 4");
       usr = scan.nextInt();
     } while (usr != 4);
   }
