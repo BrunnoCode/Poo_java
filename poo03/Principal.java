@@ -56,8 +56,13 @@ public class Principal{
             }
             break;
           case 3:
-            if(partido.size() > 0)
+            if(partido.size() > 0){
+		Methods.clearScreen();
+		System.out.println("*--------Resultado Actual--------*");
+		Methods.jumpNline();
                 Methods.list(partido);
+		Methods.jumpNline();
+	    }
             else
               System.out.println("Todavía no has creado ningún partido!\n");
             break;

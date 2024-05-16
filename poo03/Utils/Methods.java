@@ -84,7 +84,7 @@ public class Methods{
         break;
     }
   }
-
+  //Metodo Deletar Partido
   public static void delete(ArrayList<Partido> partido, Scanner scan){
     System.out.println("Qué partido quieres eliminar ?");
     list(partido);
@@ -97,7 +97,7 @@ public class Methods{
       System.out.println("Error: El partido no existe!");
     }
   }
-
+  //Metodo Editar Partido
   public static void edit(ArrayList<Partido> partido, Scanner scan){
     clearScreen();
     System.out.println("Qué Partido quieres Modificar?");
@@ -107,7 +107,7 @@ public class Methods{
     clearScreen();
     scan.nextLine();
     System.out.println("Modificar Nombre del Partido "+partido.get(index).getNamePartido()+" tecle 1\nModificar porcentaje tecle 2");
-    int usr = scan.nextInt();
+    int usr = Integer.parseInt(scan.nextLine());
     switch (usr) {
       case 1:
         System.out.print("Elija un nuevo nombre: ");
