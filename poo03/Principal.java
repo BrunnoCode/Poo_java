@@ -37,8 +37,7 @@ public class Principal{
     System.out.println("\n1* crear partido\n2* modificar partido o eliminar\n3* listar resultado\n4* salir");
     int index = -1;
     usr = scan.nextInt();
-    if(usr != 4){
-      int min = 5;
+    int min = 5;
       do {
         switch (usr) {
           case 1:
@@ -46,27 +45,34 @@ public class Principal{
                 Methods.create(partido, scan, ++index);
                 min--;
                 if (min > 0)
-                  System.out.println("debes crear "+min+" más!");
+                  System.out.println("debes crear "+min+" más!\n");
               } while (min > 0);
             break;
           case 2:
-            Methods.change(partido, scan);
+            if (partido.size() > 0){
+              Methods.change(partido, scan);
+            } else {
+              System.out.println("No hay ningún partido creado para modificarlo!\n");
+            }
             break;
           case 3:
             if(partido.size() > 0)
                 Methods.list(partido);
             else
-              System.out.println("Todavía no has creado ningún partido!");
+              System.out.println("Todavía no has creado ningún partido!\n");
             break;
           default:
-            System.out.println("Opción no válida!");
+            if (usr != 4)
+              System.out.println("Opción no válida!\n");
             break;
         }
-      System.out.println("Crear más partidos presione -> 1, modificar/eliminar -> 2, listar resultado -> 3, salir -> 4");
-      usr = scan.nextInt();
+        if (usr != 4){
+          System.out.println("Crear más partidos presione -> 1, modificar/eliminar -> 2, listar resultado -> 3, salir -> 4");
+          usr = scan.nextInt();
+        }
     } while (usr != 4);
-  }
-    
+    if (usr == 4)
+      System.out.println("Gracias por colaborar, hasta la proxima!");
     scan.close();
   }
   
