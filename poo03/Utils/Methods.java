@@ -76,7 +76,7 @@ public class Methods{
         delete(partido, scan);
         break;
       case 2:
-        //edit(partido, scan);
+        edit(partido, scan);
         break;
       default:
         System.out.println("Error: Opción no valida, Edición fallida!");
@@ -95,6 +95,26 @@ public class Methods{
       partido.remove(usr);
     } else {
       System.out.println("Error: El partido no existe!");
+    }
+  }
+
+  public static void edit(ArrayList<Partido> partido, Scanner scan){
+    clearScreen();
+    System.out.println("Qué Partido quieres Modificar?");
+    list(partido);
+    int index = scan.nextInt();
+    clearScreen();
+    System.out.println("Modificar Nombre del Partido tecle 1\nModificar porcentaje tecle 2");
+    switch (scan.nextInt()) {
+      case 1:
+        String before = partido.get(index).getNamePartido();
+        System.out.print("Elija un nuevo nombre: ");
+        partido.get(index).setNamePartido(scan.nextLine());
+        System.out.format("Partido %s cambiado a %s\n", before, partido.get(index).getNamePartido());
+        break;
+    
+      default:
+        break;
     }
   }
 
