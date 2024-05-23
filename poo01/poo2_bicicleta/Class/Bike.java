@@ -5,9 +5,9 @@ public abstract class Bike{
   protected String model;
   protected int speed;
 
-  protected  Bike(){};
+  public  Bike(){};
 
-  protected Bike(String brand, String model, int speed){
+  public Bike(String brand, String model, int speed){
     this.brand = brand;
     this.model = model;
     this.speed = speed;
@@ -33,4 +33,12 @@ public abstract class Bike{
   public void setSpeed(int speed){
     this.speed = speed;
   }
+
+  @Override
+  public String toString() {
+    return "Bike [brand=" + brand + ", model=" + model + ", speed=" + speed + ", getBrand()=" + getBrand()
+        + ", getModel()=" + getModel() + ", getSpeed()=" + getSpeed() + ", getClass()=" + getClass() + ", hashCode()="
+        + hashCode() + ", toString()=" + super.toString() + "]";
+  }
+  
 }
