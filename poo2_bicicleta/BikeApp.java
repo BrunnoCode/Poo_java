@@ -15,7 +15,7 @@ public class BikeApp{
       opt = scan.nextInt();
       switch (opt) {
         case 1:
-          Methods.buildBikeList(bikes);
+          Methods.buildBikeList(bikes, scan);
           break;
         case 2:
           if (bikes.size() > 0)

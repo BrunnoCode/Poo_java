@@ -13,8 +13,7 @@ public class Methods{
     System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
   }
 
-  public static void buildBikeList(ArrayList<Bike> bike){
-    Scanner scan = new Scanner(System.in);
+  public static void buildBikeList(ArrayList<Bike> bike, Scanner scan){
     System.out.println("Qué clase de bike quieres fichar? tecle:\n1: Casual\n2: Montaña\n3: Urbana");
     int usr = scan.nextInt();
     scan.nextLine();
@@ -70,7 +69,6 @@ public class Methods{
         bikeUrban.setModel(scan.nextLine());
         System.out.print("Velocidad: ");
         bikeUrban.setSpeed(Integer.parseInt(scan.nextLine()));
-        scan.nextLine();
         System.out.print("Tiene Suspención? si/no: ");
         res = scan.nextLine();
         if (res.equalsIgnoreCase("si"))
@@ -87,12 +85,13 @@ public class Methods{
     }
     putLine();
     System.out.println("Bike añadida!");
-    System.out.println(bike);
-    scan.close();
+    scan.nextLine();
   }
   public static void displayBikeList(ArrayList<Bike> bikes){
     for (Bike bike : bikes){
-      bike.toString();
+     // bike.toString();
+     System.out.println(bike);
+     putLine();
     }
   }
 }
