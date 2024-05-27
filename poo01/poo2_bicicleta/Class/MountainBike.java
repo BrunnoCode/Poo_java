@@ -1,23 +1,24 @@
 package Class;
 
 public class MountainBike extends Bike{
-  private int gears;
+  private boolean gears;
 
   public MountainBike(){}
 
-  public MountainBike(String brand, String model, int speed, int gears){
+  public MountainBike(String brand, String model, int speed, boolean gears){
     super(brand, model, speed);
   }
 
-  public int getGears(){
+  public boolean getGears(){
     return this.gears;
   }
 
-  public void setGears(int gears){
+  public void setGears(boolean gears){
     this.gears = gears;
   }
 
   public String toString(){
-    return super.toString()+"\nMarchas: "+getGears();
+    String res = getGears() ? "si" : "no";
+    return super.toString()+"\nMarchas: "+res;
   }
 }
