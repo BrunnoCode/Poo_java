@@ -36,9 +36,7 @@ public abstract class Bike{
 
   @Override
   public String toString() {
-    return "Bike [brand=" + brand + ", model=" + model + ", speed=" + speed + ", getBrand()=" + getBrand()
-        + ", getModel()=" + getModel() + ", getSpeed()=" + getSpeed() + ", getClass()=" + getClass() + ", hashCode()="
-        + hashCode() + ", toString()=" + super.toString() + "]";
+    return "Marca: "+brand+"\nModelo: "+model+"\nVelocidad: "+speed;
   }
   
 }
