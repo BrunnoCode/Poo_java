@@ -14,7 +14,7 @@ public class CasualBike extends Bike{
   this.claxon = claxon;
  }
 
- public boolean getClaxon(){
+ public boolean hasClaxon(){
   return claxon;
  }
 

@@ -11,7 +11,7 @@ public class UrbanBike extends Bike{
     this.suspension = suspension;
   }
 
-  public boolean getSuspension(){
+  public boolean hasSuspension(){
     return this.suspension;
   }
 

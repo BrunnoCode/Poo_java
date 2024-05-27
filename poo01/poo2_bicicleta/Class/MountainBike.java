@@ -9,7 +9,7 @@ public class MountainBike extends Bike{
     super(brand, model, speed);
   }
 
-  public boolean getGears(){
+  public boolean hasGears(){
     return this.gears;
   }
 
@@ -18,7 +18,7 @@ public class MountainBike extends Bike{
   }
 
   public String toString(){
-    String res = getGears() ? "si" : "no";
+    String res = hasGears() ? "si" : "no";
     return super.toString()+"\nMarchas: "+res;
   }
 }
