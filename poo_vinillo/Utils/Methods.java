@@ -95,11 +95,64 @@ public class Methods{
       System.out.println("Disco "+beforeElement+" Eliminado!");
       putLine();
     } else if(Integer.parseInt(userOption.nextLine()) == 1){
-        System.out.println("Qué parte quieres modificar:");
+        listDiscAttribute(disco, element, userOption);
     } else
         cleanScreen();
         putLine();
         System.out.println("Opción no válida!");
         putLine();
+  }
+
+  public static void listDiscAttribute(ArrayList<Disco> disco, int element, Scanner scan){
+    cleanScreen();
+    putLine();
+    System.out.println("Qué parte quieres modificar:");
+    System.out.println("1-Titulo\n2-Artista\n3-Categoria\n4-Duracion\n5-Cancelar acción");
+    int attribute = Integer.parseInt(scan.nextLine());
+    String auxBefore;
+    switch (attribute) {
+      case 1:
+        cleanScreen();
+        auxBefore = disco.get(element).getTitle();
+        System.out.print("Nuevo titulo: ");
+        disco.get(element).setTitle(scan.nextLine());
+        putLine();
+        System.out.println("Titulo "+auxBefore+" cambiado a "+disco.get(element).getTitle()+" correctamente!");
+        break;
+      case 2:
+        cleanScreen();
+        auxBefore = disco.get(element).getArtist();
+        System.out.print("Nuevo Artista: ");
+        disco.get(element).setArtist(scan.nextLine());
+        putLine();
+        System.out.println("Artista "+auxBefore+" cambiado a "+disco.get(element).getArtist()+" correctamente!");
+        break;
+      case 3:
+        cleanScreen();
+        auxBefore = disco.get(element).getCategory();
+        System.out.print("Nueva Categoria: ");
+        disco.get(element).setCategory(scan.nextLine());
+        putLine();
+        System.out.println("Categoria "+auxBefore+" cambiado a "+disco.get(element).getCategory()+" correctamente!");
+        break;
+      case 4:
+        cleanScreen();
+        float before = disco.get(element).getDuration();
+        System.out.print("Nueva Duración ej: '00.00': ");
+        disco.get(element).setDuration(Float.parseFloat(scan.nextLine()));
+        putLine();
+        System.out.println("Tiempo de duración "+before+" cambiado a "+disco.get(element).getDuration()+" correctamente!");
+        break;
+      default:
+        if (attribute == 5){
+          putLine();
+          System.out.println("Acción Cancelada!");
+          putLine();
+        } else{
+          System.out.println("Lo siento, no existe esta opción!");
+          listDiscAttribute(disco, element, scan);
+        }
+        break;
+    }
   }
 }
