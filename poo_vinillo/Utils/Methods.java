@@ -50,6 +50,7 @@ public class Methods{
         putLine();
         break;
       case 2:
+        cleanScreen();
         System.out.println("2 seleccionado!");
         timer();
         for (Disco disc : discos){
@@ -58,7 +59,12 @@ public class Methods{
         }
         break;
       case 3:
-        System.out.println("");
+        cleanScreen();
+        System.out.println("3 selecionado!");
+        System.out.println("Cúal de los discos quieres modificar? ");
+        for (int i = 0; i < discos.size(); i++){
+          // Terminar esta parte 
+        }
         break;
     
       default:
