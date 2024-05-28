@@ -88,13 +88,14 @@ public class Methods{
   public static void editElement(ArrayList<Disco> disco, int element, Scanner userOption){
     cleanScreen();
     System.out.println("1-Modificar\n2-Deletar");
-    if (Integer.parseInt(userOption.nextLine()) == 2){
+    int opt = Integer.parseInt(userOption.nextLine());
+    if (opt == 2){
       String beforeElement = disco.get(element).getTitle();
       disco.remove(element);
       putLine();
       System.out.println("Disco "+beforeElement+" Eliminado!");
       putLine();
-    } else if(Integer.parseInt(userOption.nextLine()) == 1){
+    } else if(opt == 1){
         listDiscAttribute(disco, element, userOption);
     } else
         cleanScreen();
