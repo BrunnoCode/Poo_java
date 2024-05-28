@@ -61,12 +61,10 @@ public class Methods{
       case 3:
         cleanScreen();
         System.out.println("3 selecionado!");
-        System.out.println("Cúal de los discos quieres modificar? ");
-        for (int i = 0; i < discos.size(); i++){
-          // Terminar esta parte 
-        }
+        System.out.println("Cúal de los discos quieres modificar o remover? ");
+        int index = listElement(discos);
+        editElement(discos, index, scan);
         break;
-    
       default:
         if (user != 0){
           cleanScreen();
@@ -76,5 +74,32 @@ public class Methods{
           System.out.println("Programa finalizado, hasta pronto!");
         break;
     }
+  }
+
+  public static int listElement(ArrayList<Disco> discos){
+    int index = 0;
+    for (int i = 0; i < discos.size(); i++){
+      System.out.println(i+"- "+discos.get(i).getTitle());
+      index++;
+    }
+    return index;
+  }
+
+  public static void editElement(ArrayList<Disco> disco, int element, Scanner userOption){
+    cleanScreen();
+    System.out.println("1-Modificar\n2-Deletar");
+    if (Integer.parseInt(userOption.nextLine()) == 2){
+      String beforeElement = disco.get(element).getTitle();
+      disco.remove(element);
+      putLine();
+      System.out.println("Disco "+beforeElement+" Eliminado!");
+      putLine();
+    } else if(Integer.parseInt(userOption.nextLine()) == 1){
+        System.out.println("Qué parte quieres modificar:");
+    } else
+        cleanScreen();
+        putLine();
+        System.out.println("Opción no válida!");
+        putLine();
   }
 }
