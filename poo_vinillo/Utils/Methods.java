@@ -62,7 +62,7 @@ public class Methods{
         cleanScreen();
         System.out.println("3 selecionado!");
         System.out.println("Cúal de los discos quieres modificar o remover? ");
-        int index = listElement(discos);
+        int index = listElement(discos, scan);
         editElement(discos, index, scan);
         break;
       default:
@@ -76,19 +76,24 @@ public class Methods{
     }
   }
 
-  public static int listElement(ArrayList<Disco> discos){
-    int index = 0;
+  public static int listElement(ArrayList<Disco> discos, Scanner scan){
     for (int i = 0; i < discos.size(); i++){
       System.out.println(i+"- "+discos.get(i).getTitle());
-      index++;
+    }
+    int index = Integer.parseInt(scan.nextLine());
+    while (index > discos.size() || index < 0){
+      System.out.println("Este numero está fuera del rango de limites! debes elegir un numero entre: 0 -"+discos.size());
+      index = Integer.parseInt(scan.nextLine());
     }
     return index;
   }
 
   public static void editElement(ArrayList<Disco> disco, int element, Scanner userOption){
     cleanScreen();
-    System.out.println("1-Modificar\n2-Deletar");
-    int opt = Integer.parseInt(userOption.nextLine());
+    int opt;
+    do {
+      opt = Integer.parseInt(userOption.nextLine());
+      System.out.println("1-Modificar\n2-Deletar\n4-Cancelar"); // modificar algo mais ?
     if (opt == 2){
       String beforeElement = disco.get(element).getTitle();
       disco.remove(element);
@@ -97,18 +102,21 @@ public class Methods{
       putLine();
     } else if(opt == 1){
         listDiscAttribute(disco, element, userOption);
-    } else
+    } else if (opt > 2 && opt != 4){
         cleanScreen();
         putLine();
-        System.out.println("Opción no válida!");
+        System.out.println("Opción no válida!"); // concertar bug
         putLine();
+    }
+    } while (opt != 4);
+        
   }
 
   public static void listDiscAttribute(ArrayList<Disco> disco, int element, Scanner scan){
     cleanScreen();
     putLine();
     System.out.println("Qué parte quieres modificar:");
-    System.out.println("1-Titulo\n2-Artista\n3-Categoria\n4-Duracion\n5-Cancelar acción");
+    System.out.println("1-Titulo "+disco.get(element).getTitle()+"\n2-Artista: "+disco.get(element).getArtist()+"\n3-Categoria: "+disco.get(element).getCategory()+"\n4-Duracion: "+disco.get(element).getDuration()+"min"+"\n5-Cancelar acción");
     int attribute = Integer.parseInt(scan.nextLine());
     String auxBefore;
     switch (attribute) {

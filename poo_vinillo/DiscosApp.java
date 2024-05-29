@@ -16,7 +16,7 @@ public class DiscosApp{
     do{
        if(discos.size() == 0){
         System.out.println("Todavía no hay discos añadidos! presione 1 para añadir o 0 para salir.");
-       } else if (discos.size() < 2){
+       } else if (discos.size() < 1){
         System.out.println("Añadir almenos 5 discos todavía faltan: "+ --i + " presione 1 para crear o 0 para cancelar y salir");
        } else {
         System.out.println("Añadir uno más presione 1\nver lista añadida presione 2\nmodificar presione 3\nsalir presione 0");
