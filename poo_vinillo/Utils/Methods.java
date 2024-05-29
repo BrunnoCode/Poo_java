@@ -82,8 +82,7 @@ public class Methods{
     }
     int index = Integer.parseInt(scan.nextLine());
     while (index > discos.size() || index < 0){
-      System.out.println("Este numero está fuera del rango de limites! debes elegir un numero entre: 0 -"+discos.size());
-      index = Integer.parseInt(scan.nextLine());
+      System.out.println("Este numero está fuera del rango de limites!");
     }
     return index;
   }
@@ -91,9 +90,8 @@ public class Methods{
   public static void editElement(ArrayList<Disco> disco, int element, Scanner userOption){
     cleanScreen();
     int opt;
-    do {
-      opt = Integer.parseInt(userOption.nextLine());
-      System.out.println("1-Modificar\n2-Deletar\n4-Cancelar"); // modificar algo mais ?
+    opt = Integer.parseInt(userOption.nextLine());
+    System.out.println("1-Modificar\n2-Deletar");
     if (opt == 2){
       String beforeElement = disco.get(element).getTitle();
       disco.remove(element);
@@ -102,14 +100,12 @@ public class Methods{
       putLine();
     } else if(opt == 1){
         listDiscAttribute(disco, element, userOption);
-    } else if (opt > 2 && opt != 4){
+    } else if (opt > 2){
         cleanScreen();
         putLine();
         System.out.println("Opción no válida!"); // concertar bug
         putLine();
-    }
-    } while (opt != 4);
-        
+    } 
   }
 
   public static void listDiscAttribute(ArrayList<Disco> disco, int element, Scanner scan){
@@ -117,6 +113,7 @@ public class Methods{
     putLine();
     System.out.println("Qué parte quieres modificar:");
     System.out.println("1-Titulo "+disco.get(element).getTitle()+"\n2-Artista: "+disco.get(element).getArtist()+"\n3-Categoria: "+disco.get(element).getCategory()+"\n4-Duracion: "+disco.get(element).getDuration()+"min"+"\n5-Cancelar acción");
+
     int attribute = Integer.parseInt(scan.nextLine());
     String auxBefore;
     switch (attribute) {
