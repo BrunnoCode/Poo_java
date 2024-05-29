@@ -90,8 +90,8 @@ public class Methods{
   public static void editElement(ArrayList<Disco> disco, int element, Scanner userOption){
     cleanScreen();
     int opt;
-    opt = Integer.parseInt(userOption.nextLine());
     System.out.println("1-Modificar\n2-Deletar");
+    opt = Integer.parseInt(userOption.nextLine());
     if (opt == 2){
       String beforeElement = disco.get(element).getTitle();
       disco.remove(element);
@@ -124,6 +124,17 @@ public class Methods{
         disco.get(element).setTitle(scan.nextLine());
         putLine();
         System.out.println("Titulo "+auxBefore+" cambiado a "+disco.get(element).getTitle()+" correctamente!");
+        putLine();
+        System.out.println("Presione 1 para seguir modificando el mismo disco o 2 para dejar de editar");
+        int again;
+        do {
+          again = Integer.parseInt(scan.nextLine());
+          if (again == 1)
+            listDiscAttribute(disco, element, scan);
+          else if(again != 2 && again != 1)
+            System.out.println("Muy mal, debes poner 1 o 2!");
+
+        } while (again == 1 || again != 2);
         break;
       case 2:
         cleanScreen();
