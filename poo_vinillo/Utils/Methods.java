@@ -7,7 +7,7 @@ import Class.Disco;
 
 public class Methods{
 
-  public static void timer(){
+  public static void listing(){
     System.out.println("Listando Discos creados...");
     try {
       for (int i=0;i<10;i++){
@@ -18,6 +18,14 @@ public class Methods{
         e.printStackTrace();
     }
     System.out.print(" Hecho!\n");
+}
+
+public static void timer(){
+  try {
+    Thread.sleep(2000);
+  } catch (InterruptedException e) {
+      e.printStackTrace();
+  }
 }
 
   public static void putLine(){
@@ -52,7 +60,7 @@ public class Methods{
       case 2:
         cleanScreen();
         System.out.println("2 seleccionado!");
-        timer();
+        listing();
         for (Disco disc : discos){
           System.out.println(disc.toString());
           putLine();
@@ -111,8 +119,8 @@ public class Methods{
   public static void listDiscAttribute(ArrayList<Disco> disco, int element, Scanner scan){
     cleanScreen();
     putLine();
-    System.out.println("Qué parte quieres modificar:");
-    System.out.println("1-Titulo "+disco.get(element).getTitle()+"\n2-Artista: "+disco.get(element).getArtist()+"\n3-Categoria: "+disco.get(element).getCategory()+"\n4-Duracion: "+disco.get(element).getDuration()+"min"+"\n5-Cancelar acción");
+    System.out.println("Qué parte quieres ir modificando:");
+    System.out.println("1-Titulo: "+disco.get(element).getTitle()+"\n2-Artista: "+disco.get(element).getArtist()+"\n3-Categoria: "+disco.get(element).getCategory()+"\n4-Duracion: "+disco.get(element).getDuration()+"min"+"\n5-Dejar de Editar");
 
     int attribute = Integer.parseInt(scan.nextLine());
     String auxBefore;
@@ -123,18 +131,10 @@ public class Methods{
         System.out.print("Nuevo titulo: ");
         disco.get(element).setTitle(scan.nextLine());
         putLine();
-        System.out.println("Titulo "+auxBefore+" cambiado a "+disco.get(element).getTitle()+" correctamente!");
+        System.out.println("Titulo: "+auxBefore+" cambiado a "+disco.get(element).getTitle()+" correctamente!");
         putLine();
-        System.out.println("Presione 1 para seguir modificando el mismo disco o 2 para dejar de editar");
-        int again;
-        do {
-          again = Integer.parseInt(scan.nextLine());
-          if (again == 1)
-            listDiscAttribute(disco, element, scan);
-          else if(again != 2 && again != 1)
-            System.out.println("Muy mal, debes poner 1 o 2!");
-
-        } while (again == 1 || again != 2);
+        timer();
+        listDiscAttribute(disco, element, scan);
         break;
       case 2:
         cleanScreen();
@@ -142,7 +142,9 @@ public class Methods{
         System.out.print("Nuevo Artista: ");
         disco.get(element).setArtist(scan.nextLine());
         putLine();
-        System.out.println("Artista "+auxBefore+" cambiado a "+disco.get(element).getArtist()+" correctamente!");
+        System.out.println("Artista: "+auxBefore+" cambiado a "+disco.get(element).getArtist()+" correctamente!");
+        timer();
+        listDiscAttribute(disco, element, scan);
         break;
       case 3:
         cleanScreen();
@@ -150,7 +152,9 @@ public class Methods{
         System.out.print("Nueva Categoria: ");
         disco.get(element).setCategory(scan.nextLine());
         putLine();
-        System.out.println("Categoria "+auxBefore+" cambiado a "+disco.get(element).getCategory()+" correctamente!");
+        System.out.println("Categoria: "+auxBefore+" cambiado a "+disco.get(element).getCategory()+" correctamente!");
+        timer();
+        listDiscAttribute(disco, element, scan);
         break;
       case 4:
         cleanScreen();
@@ -158,12 +162,14 @@ public class Methods{
         System.out.print("Nueva Duración ej: '00.00': ");
         disco.get(element).setDuration(Float.parseFloat(scan.nextLine()));
         putLine();
-        System.out.println("Tiempo de duración "+before+" cambiado a "+disco.get(element).getDuration()+" correctamente!");
+        System.out.println("Tiempo de duración: "+before+"min cambiado a "+disco.get(element).getDuration()+"min correctamente!");
+        timer();
+        listDiscAttribute(disco, element, scan);
         break;
       default:
         if (attribute == 5){
           putLine();
-          System.out.println("Acción Cancelada!");
+          System.out.println("Modificación Terminada!");
           putLine();
         } else{
           System.out.println("Lo siento, no existe esta opción!");

@@ -7,6 +7,7 @@ import Class.Disco;
 
 public class DiscosApp{
   public static void main(String[] args){
+    Methods.cleanScreen();
     System.out.println("Bienvenidos a la coleccion de Discos!");
     Methods.putLine();
     Scanner scan = new Scanner(System.in);
