@@ -25,7 +25,7 @@ public class Methods{
     switch (option) {
       case 1:
         cleanScreen();
-        System.out.println("Crear lista selecionado:");
+        System.out.println("1: Crear lista selecionado:");
         Toy toy = new Toy();
         System.out.print("Juguete: ");
         toy.setToyName(scan.nextLine());
@@ -40,6 +40,21 @@ public class Methods{
         cleanScreen();
         toys.add(toy);
         System.out.println("\nJuguete añadido!!!\n");
+        break;
+      case 2:
+        cleanScreen();
+        System.out.println("2: Selecionar Juguete a ser enviado:");
+        listToys();
+        int index = Integer.parseInt(scan.nextLine());
+        if (index > toys.size() || index < 0){
+          cleanScreen();
+          System.out.println("XXXXXXX Error, el valor no coincide! XXXXXXX");
+        } else {
+          cleanScreen();
+          System.out.println("Juguete a ser enviado: \n\n"+toys.get(index).toString()+"\n");
+          System.out.print("Precio de envío que quieres poner: ");
+
+        }
         break;
     
       default:
