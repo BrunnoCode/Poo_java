@@ -53,7 +53,7 @@ public class Methods{
           cleanScreen();
           System.out.println("Juguete a ser enviado: \n\n"+toys.get(index).toString()+"\n");
           System.out.print("Precio de envío que quieres poner: ");
-
+          // HE PARADO AQUI, IRÉ SEGUIR MAÑANA
         }
         break;
     
