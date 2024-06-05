@@ -1,7 +1,7 @@
 package Utils;
 
 public class Methods{
-  public float sizeCalculate(){
-    
+  public static float sizeCalculate(float sizeX, float sizeY, float sizeZ){
+      return (sizeX + sizeY + sizeZ);
   }
 }
