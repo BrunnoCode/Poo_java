@@ -39,7 +39,7 @@ public class Methods{
         toy.setToyPrice(Double.parseDouble(scan.nextLine()));
         cleanScreen();
         toys.add(toy);
-        System.out.println("Juguete añadido!!!");
+        System.out.println("\nJuguete añadido!!!\n");
         break;
     
       default:
