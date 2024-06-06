@@ -81,11 +81,15 @@ public class Methods{
         }
         break;
       case 3:
-        cleanScreen();
-        System.out.println("Listado de Todos los Juguetes:\n\n");
-        listToys(toys);
-        scan.nextLine();
-        cleanScreen();
+      if (toys.size() > 0){ 
+          cleanScreen();
+          System.out.println("Listado de Todos los Juguetes:\n\n");
+          listToys(toys);
+          scan.nextLine();
+        } else {
+          cleanScreen();
+          System.out.println("Ups! No hay nada para listar :( ");
+        }
         System.out.println("\nXOXOXOXOXOXOXOXOXOXOXOOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO\n");
         break;
       case 5:
