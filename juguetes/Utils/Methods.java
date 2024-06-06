@@ -12,13 +12,20 @@ public class Methods{
   }
 
   public static void selectMessage(){
-    System.out.println("1-Crear lista de Juguetes.\n2-Elegir Juguete a ser enviado.\n3-Listar todos los juguetes añadidos.\n4-Editar o eliminar juguetes\n5-salir");
+    System.out.println("1-Crear lista de Juguetes o seguir añadiendo.\n2-Elegir Juguete a ser enviado.\n3-Listar todos los juguetes añadidos.\n4-Editar o eliminar juguetes\n5-salir");
   }
 
   public static void cleanScreen(){
     System.out.print("\033[H\033[2J");
     System.out.flush();
-    System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+  }
+
+  public static void listToys(ArrayList<Toy> toys){
+    int x = 0;
+    for (Toy index : toys){
+      System.out.println("\n"+x+"-> "+index.toString());
+      x++;
+    }
   }
   //USR METHODS
   public static void usrSelection(ArrayList<Toy> toys, int option, Scanner scan){
@@ -44,7 +51,7 @@ public class Methods{
       case 2:
         cleanScreen();
         System.out.println("2: Selecionar Juguete a ser enviado:");
-        listToys();
+        listToys(toys);
         int index = Integer.parseInt(scan.nextLine());
         if (index > toys.size() || index < 0){
           cleanScreen();
@@ -56,8 +63,39 @@ public class Methods{
           float price = Float.parseFloat(scan.nextLine());
           cleanScreen();
           float dimension = Methods.sizeCalculate(toys.get(index).getToyDimensionX(), toys.get(index).getToyDimensionY(), toys.get(index).getToyDimensionZ());
-          System.out.println("El precio para enviar este articulo es: "+ (dimension * price)+"€");
+          System.out.println("El precio para enviar este articulo es: "+ (dimension/price)+"€");
+          System.out.println("Enviar Juguete ? si/no?");
+          String usrScan = scan.nextLine();
+          while(!usrScan.equalsIgnoreCase("si") && !usrScan.equalsIgnoreCase("no")){
+            System.out.println("La respuesta no coincide, tecle si o no.");
+            usrScan = scan.nextLine();
+          }
+          if (usrScan.equalsIgnoreCase("si")){
+            cleanScreen();
+            System.out.println("Juguete enviado con exito! Ya no se encuentra en la lista.\n\n");
+            toys.remove(index);
+          } else {
+            cleanScreen();
+            System.out.println("Juguete no enviado!");
+          }
         }
+        break;
+      case 3:
+        cleanScreen();
+        System.out.println("Listado de Todos los Juguetes:\n\n");
+        listToys(toys);
+        scan.nextLine();
+        cleanScreen();
+        System.out.println("\nXOXOXOXOXOXOXOXOXOXOXOOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO\n");
+        break;
+      case 5:
+        cleanScreen();
+        System.out.println("\u001B[34m" + "****************************************************" + "\u001B[0m");
+        System.out.println("\u001B[34m" + "*                                                  *" + "\u001B[0m");
+        System.out.println("\u001B[34m" + "*          \u001B[33mGracias por visitar nuestra Tienda,\u001B[0m        *" + "\u001B[34m" + " *" + "\u001B[0m");
+        System.out.println("\u001B[34m" + "*                     \u001B[33mhasta pronto!\u001B[0m                *" + "\u001B[34m" + " *" + "\u001B[0m");
+        System.out.println("\u001B[34m" + "*                                                  *" + "\u001B[0m");
+        System.out.println("\u001B[34m" + "****************************************************" + "\u001B[0m");
         break;
     
       default:

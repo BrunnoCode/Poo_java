@@ -57,11 +57,10 @@ public class Toy{
 
   public String toString(){
     return
-          "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n"+
           "Juguete: "+getToyName()+"\n"+
-          "Tamaño de largo: "+getToyDimensionX()+"cm alto: "+getToyDimensionY()+"cm ancho: "+getToyDimensionZ()+"cm\n"+
-          "Volumen Total: "+Methods.sizeCalculate(getToyDimensionX(), getToyDimensionY(), getToyDimensionZ())+
-          "Precio: "+getToyPrice()+"€\n"+
+          "Tamaño de largo: "+getToyDimensionX()+"mm alto: "+getToyDimensionY()+"mm ancho: "+getToyDimensionZ()+"mm\n"+
+          "Volumen Total: "+Methods.sizeCalculate(getToyDimensionX(), getToyDimensionY(), getToyDimensionZ())+"mm"+
+          "\nPrecio: "+getToyPrice()+"€\n"+
           "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n";
   }
 }
