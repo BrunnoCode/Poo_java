@@ -53,7 +53,10 @@ public class Methods{
           cleanScreen();
           System.out.println("Juguete a ser enviado: \n\n"+toys.get(index).toString()+"\n");
           System.out.print("Precio de envío que quieres poner: ");
-          // HE PARADO AQUI, IRÉ SEGUIR MAÑANA
+          float price = Float.parseFloat(scan.nextLine());
+          cleanScreen();
+          float dimension = Methods.sizeCalculate(toys.get(index).getToyDimensionX(), toys.get(index).getToyDimensionY(), toys.get(index).getToyDimensionZ());
+          System.out.println("El precio para enviar este articulo es: "+ (dimension * price)+"€");
         }
         break;
     
