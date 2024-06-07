@@ -32,7 +32,7 @@ public class Methods{
     cleanScreen();
     System.out.println("Juguete Elegido:\n");
     toys.get(index).toString();
-    System.out.println("\n1-modificar\n2-eliminar");
+    System.out.println("\n1-modificar\n2-eliminar\n3-cancelar");
     int option = Integer.parseInt(scan.nextLine());
     switch (option) {
       case 1:
@@ -45,10 +45,26 @@ public class Methods{
         scan.nextLine();
         break;
       case 2:
-        
+        cleanScreen();
+        System.out.println("Eliminar Juguete!\n");
+        toys.get(index).toString();
+        System.out.println("\nSeguro que quieres Eliminar? si/no");
+        String res = scan.nextLine();
+        if (res.equalsIgnoreCase("si")){
+          cleanScreen();
+          toys.remove(index);
+          System.out.println("Juguete Removido!");
+        } else if (res.equalsIgnoreCase("no")){
+          System.out.println("Ninguna alteración hecha!");
+        }
         break;
-    
+      case 3:
+        System.out.println("Acción Cancelada!");
+        break;
       default:
+        if (option > 3 || option <= 0){
+          
+        }
         break;
     }
   }
