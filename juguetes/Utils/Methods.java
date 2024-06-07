@@ -28,11 +28,29 @@ public class Methods{
     }
   }
 
-  public static void editToy(int index, ArrayList<Toy> toys){
+  public static void editToy(int index, ArrayList<Toy> toys, Scanner scan){
     cleanScreen();
     System.out.println("Juguete Elegido:\n");
     toys.get(index).toString();
-    System.out.println("\nQué parte quieres modificar o eliminar?");
+    System.out.println("\n1-modificar\n2-eliminar");
+    int option = Integer.parseInt(scan.nextLine());
+    switch (option) {
+      case 1:
+        usrSelection(toys, option, scan);
+        toys.remove(index);
+        cleanScreen();
+        System.out.println("Juguete modificado!\n");
+        listToys(toys);
+        System.out.println("\nPresione Enter!");
+        scan.nextLine();
+        break;
+      case 2:
+        
+        break;
+    
+      default:
+        break;
+    }
   }
   //USR METHODS
   public static void usrSelection(ArrayList<Toy> toys, int option, Scanner scan){
@@ -40,7 +58,7 @@ public class Methods{
     switch (option) {
       case 1:
         cleanScreen();
-        System.out.println("1: Crear lista selecionado:");
+        System.out.println("1: Crear/editar lista selecionado:");
         Toy toy = new Toy();
         System.out.print("Juguete: ");
         toy.setToyName(scan.nextLine());
@@ -108,7 +126,7 @@ public class Methods{
             listToys(toys);
             int intScan = Integer.parseInt(scan.nextLine());
             if (intScan >= 0 && !(intScan > toys.size())){
-              editToy(intScan, toys);
+              editToy(intScan, toys, scan);
             } else {
               System.out.println("XXXXX Este Juguete no existe dentro de la Lista! XXXXX");
             }
