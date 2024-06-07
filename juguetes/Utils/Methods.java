@@ -53,7 +53,7 @@ public class Methods{
         if (res.equalsIgnoreCase("si")){
           cleanScreen();
           toys.remove(index);
-          System.out.println("Juguete Removido!");
+          System.out.println("XXXXX Juguete Removido!XXXXX\n");
         } else if (res.equalsIgnoreCase("no")){
           System.out.println("Ninguna alteración hecha!");
         }
@@ -92,13 +92,14 @@ public class Methods{
         break;
       case 2:
         cleanScreen();
-        System.out.println("2: Selecionar Juguete a ser enviado:");
-        listToys(toys);
-        int index = Integer.parseInt(scan.nextLine());
-        if (index > toys.size() || index < 0){
-          cleanScreen();
-          System.out.println("XXXXXXX Error, el valor no coincide! XXXXXXX");
-        } else {
+        if (toys.size() > 0){
+            System.out.println("2: Selecionar Juguete a ser enviado:");
+            listToys(toys);
+            int index = Integer.parseInt(scan.nextLine());
+            if (index > toys.size() || index < 0){
+              cleanScreen();
+              System.out.println("XXXXXXX Error, el valor no coincide! XXXXXXX");
+            } else {
           cleanScreen();
           System.out.println("Juguete a ser enviado: \n\n"+toys.get(index).toString()+"\n");
           System.out.print("Precio de envío que quieres poner: ");
@@ -121,7 +122,10 @@ public class Methods{
             System.out.println("Juguete no enviado!");
           }
         }
-        break;
+      } else {
+        System.out.println("Lo siento, pero todavía no añadiste ningún juguete :(");
+      }
+      break;
       case 3:
       if (toys.size() > 0){ 
           cleanScreen();
