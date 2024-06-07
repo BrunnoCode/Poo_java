@@ -59,12 +59,12 @@ public class Methods{
         }
         break;
       case 3:
-        System.out.println("Acción Cancelada!");
         break;
       default:
         if (option > 3 || option <= 0){
-          
-        }
+          System.out.println("Opción No válida!");
+        } else 
+           System.out.println("Acción Cancelada!");
         break;
     }
   }
