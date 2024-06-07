@@ -27,8 +27,16 @@ public class Methods{
       x++;
     }
   }
+
+  public static void editToy(int index, ArrayList<Toy> toys){
+    cleanScreen();
+    System.out.println("Juguete Elegido:\n");
+    toys.get(index).toString();
+    System.out.println("\nQué parte quieres modificar o eliminar?");
+  }
   //USR METHODS
   public static void usrSelection(ArrayList<Toy> toys, int option, Scanner scan){
+    String usrScan;
     switch (option) {
       case 1:
         cleanScreen();
@@ -65,7 +73,7 @@ public class Methods{
           float dimension = Methods.sizeCalculate(toys.get(index).getToyDimensionX(), toys.get(index).getToyDimensionY(), toys.get(index).getToyDimensionZ());
           System.out.println("El precio para enviar este articulo es: "+ (dimension/price)+"€");
           System.out.println("Enviar Juguete ? si/no?");
-          String usrScan = scan.nextLine();
+          usrScan = scan.nextLine();
           while(!usrScan.equalsIgnoreCase("si") && !usrScan.equalsIgnoreCase("no")){
             System.out.println("La respuesta no coincide, tecle si o no.");
             usrScan = scan.nextLine();
@@ -96,9 +104,16 @@ public class Methods{
       case 4:
         cleanScreen();
         if (toys.size() > 0){
-          
-        } else {
-          System.out.println("\nNo hay juguetes añadidos!\n");
+            System.out.println("-*-*-*-*-* Elija qué juguete quieres Modificar o Eliminar? -*-*-*-*-*\n");
+            listToys(toys);
+            int intScan = Integer.parseInt(scan.nextLine());
+            if (intScan >= 0 && !(intScan > toys.size())){
+              editToy(intScan, toys);
+            } else {
+              System.out.println("XXXXX Este Juguete no existe dentro de la Lista! XXXXX");
+            }
+          } else {
+            System.out.println("\nNo hay juguetes añadidos!\n");
         }
 
         break;
