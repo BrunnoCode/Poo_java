@@ -85,12 +85,22 @@ public class Methods{
           cleanScreen();
           System.out.println("Listado de Todos los Juguetes:\n\n");
           listToys(toys);
+          System.out.println("\n\nPresione Enter!");
           scan.nextLine();
         } else {
           cleanScreen();
           System.out.println("Ups! No hay nada para listar :( ");
         }
         System.out.println("\nXOXOXOXOXOXOXOXOXOXOXOOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO\n");
+        break;
+      case 4:
+        cleanScreen();
+        if (toys.size() > 0){
+          
+        } else {
+          System.out.println("\nNo hay juguetes añadidos!\n");
+        }
+
         break;
       case 5:
         cleanScreen();
@@ -101,8 +111,8 @@ public class Methods{
         System.out.println("\u001B[34m" + "*                                                  *" + "\u001B[0m");
         System.out.println("\u001B[34m" + "****************************************************" + "\u001B[0m");
         break;
-    
       default:
+        System.out.println("Opción no válida!");
         break;
     }
   }
