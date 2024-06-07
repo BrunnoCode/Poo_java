@@ -23,7 +23,7 @@ public class Methods{
   public static void listToys(ArrayList<Toy> toys){
     int x = 0;
     for (Toy index : toys){
-      System.out.println("\n"+x+"-> "+index.toString());
+      System.out.println("\n"+x+"-> \n"+index.toString());
       x++;
     }
   }
@@ -119,7 +119,7 @@ public class Methods{
             toys.remove(index);
           } else {
             cleanScreen();
-            System.out.println("Juguete no enviado!");
+            System.out.println("XXXX Juguete no enviado! XXXX\n");
           }
         }
       } else {
