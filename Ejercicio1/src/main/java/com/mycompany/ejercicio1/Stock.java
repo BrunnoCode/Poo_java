@@ -1,5 +1,11 @@
 package com.mycompany.ejercicio1;
 
-public class Stock {
+import java.util.ArrayList;
+import java.util.List;
 
-}
+public class Stock {
+  private int idStock;
+  private List<Category> category = new ArrayList<>();
+
+  
+  }
