@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Ejercicio1 {
 
     public static void main(String[] args) {
-       System.out.println("Gestor de Supermercado\nHaga Login para gestionar o crea una cuenta:");
+       System.out.println("Bien Venido al Supermercado\nHaga Login para gestionar o crea una cuenta:");
        boolean out = false;
        do {
 
