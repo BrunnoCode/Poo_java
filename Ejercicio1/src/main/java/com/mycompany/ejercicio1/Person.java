@@ -114,7 +114,5 @@ public class Person {
                 "Entidad: "+persona+n+
                 "Fecha de alta: "+getStartDate()+n+
                 "Estado: "+isOperative+n+inactive;
-    }
-    
-    
+    } 
 }
