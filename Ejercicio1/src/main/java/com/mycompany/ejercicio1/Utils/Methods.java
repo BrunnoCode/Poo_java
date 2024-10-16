@@ -57,7 +57,16 @@ public static void putLine(){
     System.out.println("*-*-*-*-*-*-*-*-*-*-*-* Creación de Usuario *-*-*-*-*-*-*-*-*-*-*-*");
     Scanner userScan = new Scanner(System.in);
     ArrayList<User> users = new ArrayList<>();
-    
+    System.out.print("Nombre: ");
+    String name = userScan.nextLine();
+    System.out.print("Email: ");
+    String email = userScan.nextLine();
+    System.out.print("Telefono: ");
+    String tel = userScan.nextLine();
+
+    User newUser = new User(name, email, tel);
+    users.add(newUser);
+
     userScan.close();
   }
   public static void handlerLogin(){

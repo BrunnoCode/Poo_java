@@ -20,6 +20,12 @@ public class Person {
     private boolean active;
     
     public Person(){}; //Empty Constructor
+
+    public Person(String name, String email, String tel){ // nome, email y telefono
+        this.name = name;
+        this.email = email;
+        this.tel = tel;
+    }
     
     public Person(int idPerson, String name, String email, String tel, boolean isIndividualPerson, LocalDate startDate, LocalDate deactivationDate, boolean active) {
         this.idPerson = idPerson;
