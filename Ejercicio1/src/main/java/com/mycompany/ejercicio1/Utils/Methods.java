@@ -1,6 +1,9 @@
 package com.mycompany.ejercicio1.Utils;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.mycompany.ejercicio1.User;
 
 public class Methods {
   // TODOS LOS METODOS EN RELACION AL PROGRAMA
@@ -53,6 +56,7 @@ public static void putLine(){
   public static void handlerNewAcount(){
     System.out.println("*-*-*-*-*-*-*-*-*-*-*-* Creación de Usuario *-*-*-*-*-*-*-*-*-*-*-*");
     Scanner userScan = new Scanner(System.in);
+    ArrayList<User> users = new ArrayList<>();
     
     userScan.close();
   }
