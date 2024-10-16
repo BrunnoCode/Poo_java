@@ -21,7 +21,7 @@ public class Person {
     
     public Person(){}; //Empty Constructor
 
-    public Person(String name, String email, String tel){ // nome, email y telefono
+    public Person(String name, String email, String tel){
         this.name = name;
         this.email = email;
         this.tel = tel;

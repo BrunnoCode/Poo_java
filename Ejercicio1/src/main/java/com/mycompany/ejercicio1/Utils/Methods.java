@@ -3,6 +3,7 @@ package com.mycompany.ejercicio1.Utils;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 import com.mycompany.ejercicio1.User;
 
 public class Methods {
@@ -63,11 +64,19 @@ public static void putLine(){
     String email = userScan.nextLine();
     System.out.print("Telefono: ");
     String tel = userScan.nextLine();
+    System.out.print("Nombre de usuario: ");
+    String user = userScan.nextLine();
+    System.out.print("Una Contraseña: ");
+    String password = userScan.nextLine();
 
-    User newUser = new User(name, email, tel);
+    User newUser = new User(name, email, tel, user, password);
     users.add(newUser);
-
+    timer("creando usuario: ");
+    cleanScreen();
+    System.out.println("Usuario creado!");
+    putLine();
     userScan.close();
+
   }
   public static void handlerLogin(){
     System.out.println("");

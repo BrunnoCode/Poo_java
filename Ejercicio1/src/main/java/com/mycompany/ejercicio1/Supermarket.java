@@ -15,6 +15,7 @@ import com.mycompany.ejercicio1.Utils.Methods;
 public class Supermarket {
 
     public static void main(String[] args) {
+       Methods.cleanScreen();
        Methods.putLine();
        System.out.println("Bien Venido al Supermercado\n1 (Login)\n2 (Crear cuenta)\n3 (salir)");
        Scanner inputUser = new Scanner(System.in);

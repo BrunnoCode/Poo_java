@@ -10,6 +10,12 @@ public class User extends Person{
   private String userName;
   private String password;
   private String role;
+
+  public User(String name, String email, String tel, String userName, String password){ // nome, email y telefono
+    super(name, email, userName);
+    this.userName = userName;
+    this.password = password;
+}
   
   public User(int idPerson, String name, String email, String tel, boolean isIndividualPerson, LocalDate startDate,
       LocalDate deactivationDate, boolean active, String userName, String password, String role) {
