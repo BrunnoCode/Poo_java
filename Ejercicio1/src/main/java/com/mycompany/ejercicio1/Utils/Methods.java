@@ -1,11 +1,27 @@
 package com.mycompany.ejercicio1.Utils;
 
+import java.util.Scanner;
 
 public class Methods {
+  // TODOS LOS METODOS EN RELACION AL PROGRAMA
 
-  // Metodo que trata error de entrada de usuario
+  // Metodo que trata entrada del usuario/ 1-login/2-crear cuenta/3-salir
   public static void managerUserInput(int input){
-    System.out.println(input);
+    timer("Cargando: ");
+    cleanScreen();
+    switch (input) {
+      case 1:
+        //handlerLogin();
+        break;
+      case 2:
+         handlerNewAcount();
+      case 3:
+        timer("Hasta luego!");
+        break;
+      default:
+        timer("Error$$ Cerrando programa: ");
+        break;
+    }
     
   }
 
@@ -15,8 +31,8 @@ public class Methods {
     System.out.flush();
   }
 // Metodo Timer causa un delay en pantalla
-public static void timer(){
-    System.out.print("Cargando ");
+public static void timer(String message){
+    System.out.print(message);
     for (int i = 30; i > 0; i--){
       System.out.print("/");
       try {
@@ -30,5 +46,17 @@ public static void timer(){
 // Metodo creador de linea en pantalla
 public static void putLine(){
     System.out.println("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+  }
+
+  // TODOS LOS METODOS RELACIONADOS CON EL USUARIO
+
+  public static void handlerNewAcount(){
+    System.out.println("*-*-*-*-*-*-*-*-*-*-*-* Creación de Usuario *-*-*-*-*-*-*-*-*-*-*-*");
+    Scanner userScan = new Scanner(System.in);
+    
+    userScan.close();
+  }
+  public static void handlerLogin(){
+    System.out.println("");
   }
 }

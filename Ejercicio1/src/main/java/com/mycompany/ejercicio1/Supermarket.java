@@ -3,7 +3,7 @@
  */
 
 package com.mycompany.ejercicio1;
-import java.time.LocalDate;
+
 import java.util.Scanner;
 
 import com.mycompany.ejercicio1.Utils.Methods;
@@ -24,8 +24,7 @@ public class Supermarket {
         if (inputUser.hasNextInt()){
             value = inputUser.nextInt();
             if (value >= 1 && value <= 3){
-                Methods.timer();
-                Methods.managerUserInput(value);
+                Methods.managerUserInput(value); // controlamos la entrada del usuario
                 validInput = true;
             } else {
                 Methods.putLine();
