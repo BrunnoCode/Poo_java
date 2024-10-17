@@ -4,40 +4,18 @@
 
 package com.mycompany.ejercicio1;
 
-import java.util.Scanner;
-
 import com.mycompany.ejercicio1.Utils.Methods;
 
 /**
  *
- * @author bbotelho42
+ * @author bbotelho422
+ *
  */
     public class Supermarket {
 
         public static void main(String[] args) {
-           Methods.cleanScreen();
-           Methods.putLine();
-           System.out.println("Bien Venido al Supermercado\n1 (Login)\n2 (Crear cuenta)\n3 (salir)");
-           Scanner inputUser = new Scanner(System.in);
-           int value = 0;
-           boolean validInput = false;
-           while(!validInput){
-            if (inputUser.hasNextInt()){
-                value = inputUser.nextInt();
-                if (value >= 1 && value <= 3){
-                    Methods.managerUserInput(value);
-                    validInput = (value == 3);
-                } else {
-                    Methods.putLine();
-                    System.out.println("Porfavor introduzca um numero entre 1 a 3!");
-                }
-            } else {
-                Methods.putLine();
-                System.out.println("Introduzca un valor numerico!\n1 (Login)\n2 (Crear cuenta)\n3 (salir)");
-                inputUser.next();
-    
-            }
-        }
-        inputUser.close(); 
+            Methods.cleanScreen();
+            Methods.putLine();
+            Methods.mainBuild();
     }
 }
