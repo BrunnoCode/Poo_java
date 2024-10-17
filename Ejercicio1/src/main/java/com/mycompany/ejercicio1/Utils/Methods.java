@@ -3,7 +3,7 @@ package com.mycompany.ejercicio1.Utils;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+import com.mycompany.ejercicio1.Supermarket;
 import com.mycompany.ejercicio1.User;
 
 public class Methods {
@@ -19,6 +19,7 @@ public class Methods {
         break;
       case 2:
          handlerNewAcount();
+         break;
       case 3:
         timer("Hasta luego!");
         break;
