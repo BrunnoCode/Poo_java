@@ -6,13 +6,11 @@ import java.util.Scanner;
 import com.mycompany.ejercicio1.User;
 
 public class Methods {
+  private static ArrayList<User> userList = new ArrayList<>();
   private static Scanner inputUser = new Scanner(System.in);
   // TODOS LOS METODOS EN RELACION AL PROGRAMA
 
-  public static void scannerClose(){
-    inputUser.close();
-  }
-
+  // Metodo que llama la funcion principal
   public static void mainBuild(){
         System.out.println("Bien Venido al Supermercado\n1 (Login)\n2 (Crear cuenta)\n3 (salir)");
         int value = 0;
@@ -42,7 +40,7 @@ public class Methods {
     cleanScreen();
     switch (input) {
       case 1:
-        //handlerLogin();
+        handlerLogin();
         break;
       case 2:
          handlerNewAcount();
@@ -82,10 +80,11 @@ public static void putLine(){
 
   // TODOS LOS METODOS RELACIONADOS CON EL USUARIO
 
+  // Metodo Creador de un nuevo usuario
   public static void handlerNewAcount(){
     System.out.println("*-*-*-*-*-*-*-*-*-*-*-* Creación de Usuario *-*-*-*-*-*-*-*-*-*-*-*");
     //Scanner inputUser = new Scanner(System.in);
-    ArrayList<User> users = new ArrayList<>();
+    //ArrayList<User> users = new ArrayList<>();
     inputUser.nextLine();
     System.out.print("Nombre: ");
     String name = inputUser.nextLine();
@@ -99,14 +98,56 @@ public static void putLine(){
     String password = inputUser.nextLine();
 
     User newUser = new User(name, email, tel, user, password);
-    users.add(newUser);
+    userList.add(newUser);
     timer("creando usuario: ");
     cleanScreen();
     putLine();
     System.out.println("Usuario creado!\n");
     mainBuild();
   }
+ 
+ // Metodo validador de cuenta de usuario
   public static void handlerLogin(){
-    
+    System.out.println("*-*-*-*-*-*-*-*-* Login *-*-*-*-*-*-*-*-*-");
+    System.out.println("Presione Enter al rellenar cada campo!");
+    inputUser.nextLine();
+    boolean loginSuccess = false; 
+    while (!loginSuccess){
+      System.out.print("Usuario: ");
+      String userName = inputUser.nextLine();
+      System.out.print("Contraseña: ");
+      String password = inputUser.nextLine();
+      User userFound = null;
+      for (User user : userList){
+        if (user.getUserName().equals(userName) && user.getPassword().equals(password)){
+          userFound = user;
+          break;
+        }
+      }
+      if (userFound != null){
+        cleanScreen();
+        putLine();
+        System.out.println("Login success! Bien venido/a "+userFound.getName());
+        loginSuccess = true;
+        // llamar metodo de manipulacion
+      } else {
+        System.out.println("Usuario o contraseña incorrectos, desea intentar nuevamente? pulse cualquier tecla!\nPulse n para volver al menu principal");
+        String tryAgain = inputUser.nextLine();
+
+        if (tryAgain.equalsIgnoreCase("n")){
+          timer("Regresando al Menu Principal: ");
+          cleanScreen();
+          mainBuild();
+          return;
+        }
+
+      }
+    }
   }
+
+// Metodo Login Admin
+public static void managePrivilege() {
+  
+}
+
 }
