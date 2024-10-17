@@ -12,7 +12,7 @@ public class Methods {
 
   // Metodo que llama la funcion principal
   public static void mainBuild(){
-        System.out.println("Bien Venido al Supermercado\n1 (Login)\n2 (Crear cuenta)\n3 (salir)");
+        System.out.println("Bien Venido al Supermercado Cuenta Admin\n1 (Login)\n2 (Crear cuenta)\n3 (salir)");
         int value = 0;
         boolean validInput = false;
         while(!validInput){
@@ -128,8 +128,9 @@ public static void putLine(){
         cleanScreen();
         putLine();
         System.out.println("Login success! Bien venido/a "+userFound.getName());
+        timer("cargando interfaz: ");
         loginSuccess = true;
-        // llamar metodo de manipulacion
+        managePrivilege();
       } else {
         System.out.println("Usuario o contraseña incorrectos, desea intentar nuevamente? pulse cualquier tecla!\nPulse n para volver al menu principal");
         String tryAgain = inputUser.nextLine();
@@ -147,6 +148,9 @@ public static void putLine(){
 
 // Metodo Login Admin
 public static void managePrivilege() {
+  cleanScreen();
+  putLine();
+  System.out.println("Qué te gustaria hacer:\n1 (Crear Producto)\n2 (Listar Productos)\n3 (Listar usuarios)\n4 (Listar Inventário)\n5 (Salir al menu Principal)");
   
 }
 
