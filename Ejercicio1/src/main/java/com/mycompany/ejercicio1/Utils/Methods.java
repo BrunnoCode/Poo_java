@@ -12,7 +12,7 @@ public class Methods {
 
   public static void closeScanner(){
     inputUser.close();
-    
+
   }
   // Metodo que llama la funcion principal
   public static void mainBuild(){
@@ -58,29 +58,26 @@ public class Methods {
     }
     
   }
-
+  
   // Metodo limpiar pantalla
   public static void cleanScreen(){
     System.out.print("\033[H\033[2J");
     System.out.flush();
   }
-// Metodo Timer causa un delay en pantalla
-public static void timer(String message){
+  // Metodo Timer causa un delay en pantalla
+  public static void timer(String message){
     System.out.print(message);
     for (int i = 30; i > 0; i--){
       System.out.print("/");
       try {
         Thread.sleep(65);
     } catch (InterruptedException e) {
-        e.printStackTrace();
+      e.printStackTrace();
     }
     }
    
 }
 // Metodo creador de linea en pantalla
-public static void putLine(){
-    System.out.println("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
-  }
 
   // TODOS LOS METODOS RELACIONADOS CON EL USUARIO
 
@@ -100,7 +97,7 @@ public static void putLine(){
     String user = inputUser.nextLine();
     System.out.print("Una Contraseña: ");
     String password = inputUser.nextLine();
-
+    
     User newUser = new User(name, email, tel, user, password);
     userList.add(newUser);
     timer("creando usuario: ");
@@ -109,12 +106,15 @@ public static void putLine(){
     System.out.println("Usuario creado!\n");
     mainBuild();
   }
- 
+  public static void putLine(){
+      System.out.println("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+    }
+  
  // Metodo validador de cuenta de usuario
-  public static void handlerLogin(){
-    System.out.println("*-*-*-*-*-*-*-*-* Login *-*-*-*-*-*-*-*-*-");
-    System.out.println("Presione Enter al rellenar cada campo!");
-    inputUser.nextLine();
+ public static void handlerLogin(){
+   System.out.println("*-*-*-*-*-*-*-*-* Login *-*-*-*-*-*-*-*-*-");
+   System.out.println("Presione Enter al rellenar cada campo!");
+   inputUser.nextLine();
     boolean loginSuccess = false; 
     while (!loginSuccess){
       System.out.print("Usuario: ");

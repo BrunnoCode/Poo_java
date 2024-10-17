@@ -1,6 +1,6 @@
 package com.mycompany.ejercicio1;
 
-public class Role {
+public class Roles {
   private int idRole;
   private String role;
 
