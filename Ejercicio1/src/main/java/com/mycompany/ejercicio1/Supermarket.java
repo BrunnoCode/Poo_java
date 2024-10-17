@@ -15,7 +15,8 @@ import com.mycompany.ejercicio1.Utils.Methods;
 
         public static void main(String[] args) {
             Methods.cleanScreen();
-            Methods.putLine();
-            Methods.mainBuild();
+            Methods.putLine();Methods.mainBuild();
+            Methods.closeScanner();
+            System.exit(0);
     }
 }

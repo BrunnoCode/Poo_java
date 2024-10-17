@@ -10,6 +10,10 @@ public class Methods {
   private static Scanner inputUser = new Scanner(System.in);
   // TODOS LOS METODOS EN RELACION AL PROGRAMA
 
+  public static void closeScanner(){
+    inputUser.close();
+    
+  }
   // Metodo que llama la funcion principal
   public static void mainBuild(){
         System.out.println("Bien Venido al Supermercado Cuenta Admin\n1 (Login)\n2 (Crear cuenta)\n3 (salir)");
@@ -31,7 +35,7 @@ public class Methods {
             inputUser.nextLine();
         }
     }
-    inputUser.close();
+    //inputUser.close();
   }
 
   // Metodo que trata entrada del usuario/ 1-login/2-crear cuenta/3-salir
@@ -151,7 +155,6 @@ public static void managePrivilege() {
   cleanScreen();
   putLine();
   System.out.println("Qué te gustaria hacer:\n1 (Crear Producto)\n2 (Listar Productos)\n3 (Listar usuarios)\n4 (Listar Inventário)\n5 (Salir al menu Principal)");
-  
 }
 
 }
