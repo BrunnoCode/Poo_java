@@ -2,8 +2,9 @@ package com.mycompany.ejercicio1.Utils;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Locale.Category;
 
+import com.mycompany.ejercicio1.Category;
+import com.mycompany.ejercicio1.Product;
 import com.mycompany.ejercicio1.User;
 
 public class Methods {
@@ -36,7 +37,6 @@ public class Methods {
             inputUser.nextLine();
         }
     }
-    //inputUser.close();
   }
 
   // Metodo que trata entrada del usuario/ 1-login/2-crear cuenta/3-salir
@@ -78,9 +78,7 @@ public class Methods {
     }
    
 }
-// Metodo creador de linea en pantalla
-
-  // TODOS LOS METODOS RELACIONADOS CON EL USUARIO
+// TODOS LOS METODOS RELACIONADOS CON EL USUARIO
 
   // Metodo Creador de un nuevo usuario
   public static void handlerNewAcount(){
@@ -156,26 +154,32 @@ public static void managePrivilege() {
   cleanScreen();
   putLine();
   System.out.println("Qué te gustaria hacer:\n1 (Crear Producto)\n2 (Listar Productos)\n3 (Listar usuarios)\n4 (Listar Inventário)\n5 (Salir al menu Principal)");
-  boolean value = false;
+  boolean breakLoop = false;
   int userInput = 0;
-  while (!value){
-    userInput = inputUser.nextInt();
+  while (!breakLoop){
     if (inputUser.hasNextInt()){
       userInput = inputUser.nextInt();
-      value = true;
+      breakLoop = true;
     } else {
-      System.out.println("Entrada no válida, porfavor digite un numero: ");
-      System.out.println("1 (Crear Producto)\n2 (Listar Productos)\n3 (Listar usuarios)\n4 (Listar Inventário)\n5 (Salir al menu Principal)");
+      System.out.println("Error, debes seleccionar un numero para las siguientes opciones:\n1 (Crear Categoria)\n2 (Crear Producto)\n3 (Listar Categorias)\n4 (Listar Productos En stock)\n5 (Salir al menu Principal)");
     }
   }
   switch (userInput) {
     case 1:
-      
+      Category newCategory = new Category();
+      createCategory(newCategory);
       break;
   
     default:
       break;
   }
+  
+}
+// Metodo crear Producto
+public static void createCategory(Category category){
+  cleanScreen();
+  putLine();
+  
 }
 
 }

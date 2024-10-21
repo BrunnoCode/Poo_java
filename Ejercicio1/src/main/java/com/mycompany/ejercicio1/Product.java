@@ -10,6 +10,9 @@ public class Product {
   private float price;
   private Supplier supplier;
   
+
+  public Product(){}
+
   public Product(int idProducto, String productName, Category category, LocalDate expirationDate, float price,
       Supplier supplier) {
     this.idProducto = idProducto;
