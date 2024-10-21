@@ -18,6 +18,7 @@ public class Product {
     this.expirationDate = expirationDate;
     this.price = price;
     this.supplier = supplier;
+    System.out.println("Producto creado!");
   }
 
   public int getIdProducto() {
