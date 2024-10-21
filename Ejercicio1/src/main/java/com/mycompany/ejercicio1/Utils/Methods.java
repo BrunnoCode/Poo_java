@@ -2,6 +2,7 @@ package com.mycompany.ejercicio1.Utils;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Locale.Category;
 
 import com.mycompany.ejercicio1.User;
 
@@ -155,6 +156,26 @@ public static void managePrivilege() {
   cleanScreen();
   putLine();
   System.out.println("Qué te gustaria hacer:\n1 (Crear Producto)\n2 (Listar Productos)\n3 (Listar usuarios)\n4 (Listar Inventário)\n5 (Salir al menu Principal)");
+  boolean value = false;
+  int userInput = 0;
+  while (!value){
+    userInput = inputUser.nextInt();
+    if (inputUser.hasNextInt()){
+      userInput = inputUser.nextInt();
+      value = true;
+    } else {
+      System.out.println("Entrada no válida, porfavor digite un numero: ");
+      System.out.println("1 (Crear Producto)\n2 (Listar Productos)\n3 (Listar usuarios)\n4 (Listar Inventário)\n5 (Salir al menu Principal)");
+    }
+  }
+  switch (userInput) {
+    case 1:
+      
+      break;
+  
+    default:
+      break;
+  }
 }
 
 }
