@@ -105,6 +105,8 @@ public class Methods {
     System.out.println("Usuario creado!\n");
     mainBuild();
   }
+ 
+  // Metodo de poner linea
   public static void putLine(){
       System.out.println("\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
     }
@@ -161,25 +163,40 @@ public static void managePrivilege() {
       userInput = inputUser.nextInt();
       breakLoop = true;
     } else {
-      System.out.println("Error, debes seleccionar un numero para las siguientes opciones:\n1 (Crear Categoria)\n2 (Crear Producto)\n3 (Listar Categorias)\n4 (Listar Productos En stock)\n5 (Salir al menu Principal)");
+      System.out.println("Error, debes seleccionar un numero para las siguientes opciones:\n1 (Crear Categoria)\n2 (Crear Productos en la Lista)\n3 (Listar Categorias)\n4 (Listar Productos En stock)\n5 (Salir al menu Principal)");
     }
   }
+  ArrayList<Category> newCategory = new ArrayList<>();
+  Product newProduct = new Product();
   switch (userInput) {
     case 1:
-      Category newCategory = new Category();
       createCategory(newCategory);
       break;
-  
+    case 2:
+      
+      break;
     default:
       break;
   }
   
 }
-// Metodo crear Producto
-public static void createCategory(Category category){
+// Metodo crear Producto & Categoria
+
+public static void createNewProduct(Product newProduct, ArrayList<Category> category){
   cleanScreen();
   putLine();
   
+
+}
+// Metodo creador de la categoria
+public static void createCategory(ArrayList<Category> categoryList){
+  cleanScreen();
+  putLine();
+  Category newCategory = new Category();
+  System.out.print("Nombre de la categoria: ");
+  newCategory.setCategoryName(inputUser.nextLine());
+  categoryList.add(newCategory);
+  System.out.println("Categoria "+newCategory.getCategoryName()+" Creada!");
 }
 
 }
